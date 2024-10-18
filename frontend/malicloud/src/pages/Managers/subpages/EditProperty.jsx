@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 export default function EditProperty() {
   return (
-    <div className='text-center text-4xl'>Edit Property</div>
+    <div className='text-3xl text-center'>EditProperty</div>
   )
 }

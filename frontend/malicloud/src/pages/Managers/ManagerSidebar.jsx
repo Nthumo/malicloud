@@ -92,9 +92,6 @@ export default function ManagerSidebar() {
             </ul>
         </div>
       </div>
-      <main className=''>
-        <Outlet/>
-      </main>
     </>
     
   )
