@@ -14,7 +14,7 @@ export default function PropertiesPage() {
     </Helmet>
     <Header/>
       <div className='ml-[120px]'>
-        <div className='flex gap-16 mt-4'>
+        <div className='flex gap-16 mt-8'>
         <h1 className=' text-lg font-bold'>Properties</h1>
         <Card className='flex justify-between gap-[820px] border-none '>
           <CardContent className='flex p-2 rounded-lg dark:bg-zinc-900 bg-zinc-300 h-10'>
