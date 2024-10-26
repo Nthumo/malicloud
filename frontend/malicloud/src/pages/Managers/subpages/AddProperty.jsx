@@ -9,6 +9,7 @@ import { Separator } from '@/components/ui/separator';
 import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/ui/select';
 import { Toggle } from '@/components/ui/toggle';
 import { Button } from '@/components/ui/button';
+import PropertyImageUpload from '@/components/managers/PropertyImageUpload';
 
 export default function AddProperty() {
   const [selectedFeatures, setSelectedFeatures] = useState(new Set());
@@ -41,6 +42,8 @@ export default function AddProperty() {
                 Property Photo
               </CardTitle>
             </CardHeader>
+            <CardContent>
+            </CardContent>
           </Card>
 
           <Card className='dark:bg-zinc-900 bg-zinc-300 w-[830px] mb-8'>
