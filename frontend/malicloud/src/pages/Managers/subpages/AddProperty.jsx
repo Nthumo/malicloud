@@ -36,13 +36,9 @@ export default function AddProperty() {
     </Helmet>
     <Header/>
         <div className='flex gap-12 ml-32'>
-          <Card className='dark:bg-zinc-900 bg-zinc-300 w-[300px] h-[550px]'>
-            <CardHeader className='p-2'>
-              <CardTitle className='text-[15px] font-semibold'>
-                Property Photo
-              </CardTitle>
-            </CardHeader>
+          <Card className=' dark:bg-zinc-900 bg-zinc-300 w-[300px] h-auto overflow-auto'>
             <CardContent>
+              <PropertyImageUpload/>
             </CardContent>
           </Card>
 
