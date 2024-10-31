@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import Cropper from 'react-easy-crop';
-import { Crop, Upload, X } from 'lucide-react';
+import { Crop, Upload, CloudUpload, X } from 'lucide-react';
 import { useDropzone } from 'react-dropzone';
 import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
@@ -8,11 +8,12 @@ import { Button } from '../ui/button';
 
 export default function PropertyImageUpload() {
   // State for main property image
-  const [mainImage, setMainImage] = useState([]);
+  const [mainImage, setMainImage] = useState(null);
   const [crop, setCrop] = useState({ x: 0, y: 0});
   const [zoom, setZoom] = useState(1);
   const [showCropper, setShowCropper] = useState(false);
   const [croppedImage, setCroppedImage] = useState(null);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
 
   // State for gallery images
   const[galleryImages, setGalleryImages] = useState([]);
@@ -21,13 +22,10 @@ export default function PropertyImageUpload() {
   const onDropMainImage = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setMainImage(reader.result);
-        setShowCropper(true);
-      };
-      reader.readAsDataURL(file);
-    }
+      const preview = URL.createObjectURL(file);
+        setMainImage({file, preview});
+        setShowCropper(false);
+      }
   }, []);
 
   const { getRootProps: getMainImageRootProps, getInputProps: getMainImageInputProps} = useDropzone({
@@ -35,9 +33,24 @@ export default function PropertyImageUpload() {
     accept: {
       'image/*': ['.jpg', '.jpeg', '.png']
     },
-    multiple: false
+    maxFiles: 1
   });
+  
+  // Handle Cropping Complete
+  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+    setCroppedAreaPixels(croppedAreaPixels);
+    console.log('Crop area:', croppedAreaPixels);
+  }, []);
 
+  const handleCropButtonClick = () => setShowCropper(true);
+  const closeCropper = () => setShowCropper(false);
+
+  const onCropChange = () => {}
+  const onCancel = () => {
+    setShowCropper(false);
+  }
+
+ 
   // Dropzone for gallery images
   const onDropGallery = useCallback((acceptedFiles) => {
     const newImages = acceptedFiles.map(file => ({
@@ -55,11 +68,7 @@ export default function PropertyImageUpload() {
     multiple: true
   });
 
-  // Handle Cropping Complete
-  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
-    // Handle the cropped image here
-    setCroppedImage(mainImage);
-  }, [mainImage]);
+
 
   // Remove Gallery image
   const removeGalleryImage = (index) => {
@@ -73,54 +82,100 @@ export default function PropertyImageUpload() {
         {/*Main property image section */}
         <Card className='p-6'>
           <h2 className='font-semibold'>Property Photo</h2>
-          {!showCropper && !croppedImage && (
+
+          {!mainImage && (
             <div
             {...getMainImageRootProps()}
             className='border-2 border-dashed border-gray-300 rounded-lg mt-6 p-12 text-center cursor-pointer hover:border-primary'
             >
-              <input type='file' {...getMainImageInputProps()}/>
-              <Upload className='mx-auto h-12 w-12 text-gray-400'/>
+              <input {...getMainImageInputProps()}/>
+              <CloudUpload className='mx-auto h-12 w-12 text-gray-400'/>
               <p className='mt-2'>Drag & drop main property image here, or click to select</p>
             </div>
           )}
 
-          {/* {showCropper && mainImage && (
-            <div className='h-96 relative'>
-              <Cropper
-              image={mainImage}
-              crop={crop}
-              zoom={zoom}
-              aspect={16 / 9}
-              onCropChange={setCrop}
-              onZoomChange={setZoom}
-              onCropComplete={onCropComplete}
-              />
-              <div className='mt-4 absolute flex justify-end'>
-                <Button
-                onClick={() => {
-                  setShowCropper(false);
-                  setCroppedImage(mainImage);
-                }}
-                >
-                  Finish Cropping
-                </Button>
+          {mainImage && !showCropper && (
+              <div className='relative mt-4'>
+                <img
+                src={mainImage.preview}
+                alt='preview'
+                className='w-full h-64 object-fill rounded-lg'
+                />
+                <div className='flex justify-between items-center mt-4'>
+                  <button
+                  onClick={handleCropButtonClick}
+                  className=' text-white '
+                  >
+                    <Crop className='h-6'/>
+                    <p className='text-[10px]'>Crop</p>
+                  </button>
+                  <div
+                  {...getMainImageRootProps()}
+                  className='flex flex-col items-center cursor-pointer'
+                  >
+                    <input {...getMainImageInputProps()} />
+                    <CloudUpload className='h-5'/>
+                    <p className='text-[10px]'>Upload Photo</p>
+                  </div>
+                </div>
+                
               </div>
-            </div>
-          )} */}
-          
-          {mainImage == 1 && (
-            <div className='h-auto'>
-            {mainImage.map((image, index) => (
-            <div key={index} className='relative'>
-              <img
-              src={image.preview}
-              alt='cropped image'
-              className='w-full h-64 object-cover rounded-lg'
-              />
+          )}
+
+          {/* Handle Cropper */}
+          {showCropper && (
+            <div className='fixed inset-0 bg-black bg-opacity-85 flex items-center justify-center z-50 overflow-hidden'>
+              <div className='relative bottom-4 w-full h-[500px] max-w-screen-lg mx-auto'>
+                <Cropper
+                image={mainImage.preview}
+                crop={crop}
+                zoom={zoom}
+                aspect={4 / 3}
+                onCropChange={setCrop}
+                onZoomChange={setZoom}
+                onCropComplete={onCropComplete}
+                />
+                </div>
+                <input type="range" 
+                className='absolute bottom-6' 
+                min={1} 
+                max={3} 
+                step={0.1} 
+                value={zoom} 
+                onInput={(e) => {setZoom(e.target.value)}}
+                />
+                {/*  
+                <select name="" id="">
+                  {}
+                </select>
+                */}
+               
+
+                <div className=''>
+                  <Button
+                  onClick={onCancel}
+                  className='absolute bottom-6 left-[120px] text-white bg-red-600 hover:bg-red-700 '
+                  >
+                    Cancel
+                  </Button>
+                  
+                  <Button
+                  onClick={closeCropper}
+                  className='absolute bottom-6 right-[120px] bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg'
+                  >
+                    Done
+                  </Button>
+                </div>
+               
               
             </div>
-          ))}
-          </div>
+          )}
+
+          {/**Handle cropped image */}
+          {croppedImage && !showCropper && (
+            <div className='mt-4'>
+              <img src={croppedImage} alt="Cropped" className='w-full h-64 object-cover'/>
+            </div>
           )}
           
         </Card>
@@ -134,7 +189,7 @@ export default function PropertyImageUpload() {
             className='flex gap-2 items-center rounded-lg text-center cursor-pointer bg-green-900 p-1 text-white'
             >
               <input {...getGalleryInputProps()} />
-              <Upload className=' h-6 w-6 '/>
+              <CloudUpload className=' h-6 w-6 '/>
               <p className="">Upload photo</p>
             </div>
           </div>
@@ -144,7 +199,7 @@ export default function PropertyImageUpload() {
               {galleryImages.map((image, index) => (
                 <div key={index} className='relative'>
                   <img src={image.preview} alt={`Gallery ${index + 1}`} 
-                  className='w-[400px] h-[100px] object-contain rounded-lg'
+                  className='w-[400px] h-[100px] object-fill rounded-lg'
                   />
                   <Button
                   variant='destructive'
