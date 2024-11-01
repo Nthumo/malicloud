@@ -49,7 +49,6 @@ export default function PropertyImageUpload() {
   const onCancel = () => {
     setShowCropper(false);
   }
-
  
   // Dropzone for gallery images
   const onDropGallery = useCallback((acceptedFiles) => {
@@ -150,7 +149,6 @@ export default function PropertyImageUpload() {
                 </select>
                 */}
                
-
                 <div className=''>
                   <Button
                   onClick={onCancel}

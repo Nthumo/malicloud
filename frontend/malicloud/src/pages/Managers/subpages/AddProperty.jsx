@@ -10,9 +10,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger } from '@/components/u
 import { Toggle } from '@/components/ui/toggle';
 import { Button } from '@/components/ui/button';
 import PropertyImageUpload from '@/components/managers/PropertyImageUpload';
+import SelectHouseType from '@/components/managers/SelectHouseType';
+import AddUnit from '@/components/managers/AddUnit';
+import PropertyAttachement from '@/components/managers/PropertyAttachement';
 
 export default function AddProperty() {
   const [selectedFeatures, setSelectedFeatures] = useState(new Set());
+  
 
   const features =['Alarm', 'Furnished', 'Renovated', 'Hardwood floors', 'Fireplace', 'Fresh paint', 'Swimming Pool', 'Security System', 'Internet', 'Walk-in closets', 'Balcony, Deck, Patio', 'Fenced yard', 'Storage', 'Carpet']
   
@@ -91,102 +95,9 @@ export default function AddProperty() {
                   </span>
               </div>
               <Separator className='mt-6'/>
-              <div className='mt-4'>
-                <h1 className='font-semibold'>PROPERTY TYPE</h1>
-                <div className='flex gap-8 mt-4'>
-                  <span className='relative gap-3 items-center border rounded-lg p-4'>
-                    <Circle className='absolute w-5'/>
-                      <h1 className='ml-8 font-semibold'>Single Unit type</h1>
-                      <p className='text-sm ml-8 mt-2'>
-                        Single family rentals(often abbriviated as SFR) are rentals in which only one rental associated to a specific address.
-                        This type of rental is usually used for a house, single mobile home, or a single condo. 
-                        <strong>This type of property does not allow to add any units/rooms.</strong>
-                      </p>
-                  </span>
-                  <span className='items-center gap-3 border rounded-lg p-4'>
-                    <Circle className='absolute w-5'/>
-                    <h1 className='ml-8 font-semibold'>Multi Unit type</h1>
-                    <p className='ml-8 text-sm mt-2'>
-                      Multi-unit property are for rentals in which there are multiple rental units per a single address. 
-                      This type of propety is typically used for renting out rooms of a house, apartment units, office units, condos, garages, storage units, mobile home park and etc.
-                    </p>
-                  </span>
-                </div>
-              </div>
+              <SelectHouseType/>
               <Separator className='mt-6'/>
-              <div className='mt-4'>
-                <div className='flex justify-between'>
-                  <h1 className='font-semibold text-[13px]'>Unit 1</h1>
-                  <a href="#" className=''>
-                    <h1 className='flex items-center gap-2 font-semibold text-[12px] text-orange-500 hover:text-orange-600'>remove <X className='h-4'/></h1>
-                  </a>
-                </div>
-                
-                <div className='flex gap-9 mt-4'>
-                  <div className=' w-[160px] p-2'>
-                    <Label>unit # *</Label>
-                    <Input className='bg-transparent border-muted-foreground focus:border-none'/>
-                  </div>
-                  <div className='p-2 '>
-                    <Label>Unit type *</Label>
-                    <Select>
-                      <SelectTrigger className='bg-transparent w-[350px] focus:border-none border-muted-foreground'>Select Type</SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value='apartment'>Apartment</SelectItem>
-                        <SelectItem value='parking-space'>Parking Space</SelectItem>
-                        <SelectItem value='storage-unit'>Storage unit</SelectItem>
-                        <SelectItem value='room'>Room</SelectItem>
-                        <SelectItem value='office-unit'>Office unit</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className='p-2 '>
-                    <Label>Size, sq.ft</Label>
-                    <Input className='bg-transparent border-muted-foreground focus:border-none'/>
-                  </div>
-                </div>
-                <div className='flex gap-7 mt-8'>
-                  <div className='p-2'>
-                    <Label>Beds</Label>
-                    <Select>
-                      <SelectTrigger className='bg-transparent w-[150px] border-muted-foreground focus:border-none'></SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value='1'>1</SelectItem>
-                        <SelectItem value='2'>2</SelectItem>
-                        <SelectItem value='3'>3</SelectItem>
-                        <SelectItem value='4'>4</SelectItem>
-                        <SelectItem value='5'>5</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className='p-2'>
-                    <Label>Baths</Label>
-                    <Select>
-                      <SelectTrigger className='bg-transparent w-[150px] border-muted-foreground focus:border-none'></SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value='1'>1</SelectItem>
-                        <SelectItem value='1.5'>1.5</SelectItem>
-                        <SelectItem value='2'>2</SelectItem>
-                        <SelectItem value='2.5'>2.5</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className='p-2'>
-                    <Label>Rent</Label>
-                    <Input className='bg-transparent border-muted-foreground focus:border-none'/>
-                  </div>
-                  <div className='p-2'>
-                    <Label>Deposit</Label>
-                    <Input className='bg-transparent border-muted-foreground focus:border-none'/>
-                  </div>
-                </div>
-                <div className=''>
-                  <a href="#" className='flex gap-2 items-center mt-4 p-2 text-orange-500 hover:text-orange-600'>
-                  <PlusCircle className='h-6'/>
-                  <p className='font-semibold'>Add unit</p>
-                  </a>
-                </div>
-              </div>
+              <AddUnit/>
               <Separator className='mt-6'/>
               <div className='relative mt-4'>
                 <h1 className='font-semibold'>PROPERTY FEATURES</h1>
@@ -205,16 +116,7 @@ export default function AddProperty() {
                 </div>
               </div>
               <Separator className='mt-6'/>
-              <div className='mt-4'>
-                <h1 className='font-semibold'>PROPERTY ATTACHMENTS</h1>
-                <div className='dark:bg-zinc-800 bg-zinc-200 h-[100px] rounded-lg mt-4'>
-                  <span className='flex flex-col justify-center items-center pt-4'>
-                    <CloudUpload className='w-10 h-10'/>
-                    <h1 className='font-bold'>Upload</h1>
-                    <p className='text-sm'>Store documents and templates</p>
-                  </span>
-                </div>
-              </div>
+              <PropertyAttachement/>
               <Separator className='mt-4'/>
               <div className='flex justify-between mt-4'>
                 <Button className='w-24 dark:bg-zinc-950 text-white'>Cancel</Button>
