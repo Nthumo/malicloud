@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Header from '@/components/common/Header';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -16,6 +17,44 @@ import PropertyAttachement from '@/components/managers/PropertyAttachement';
 
 export default function AddProperty() {
   const [selectedFeatures, setSelectedFeatures] = useState(new Set());
+  const [formData, setSetFormData] = useState({
+    propertyName: '',
+    yearBuilt: '',
+    mls: '',
+    address: '',
+    city: '',
+    county: '',
+    zip: '',
+    constituency: '',
+    unitType: '',
+    units: [{ unitNumber: '', type: '', size: '', beds: '', baths: '', rent: '', deposit: ''}],
+    features: [],
+    attachments: [],
+    propertyPhoto: [],
+    propertyGallery: []
+  });
+
+  const navigate = useNavigate();
+
+  const handleCreate = () => {
+    console.log('Creating property with details:', formData)
+  }
+
+  {/** const handleCreate = async () => {
+    try {
+        // Example: Posting formData to your backend
+        const response = await axios.post('/api/properties', formData);
+        if (response.status === 201) {
+            // Successfully created the property, navigate to property list or details page
+            navigate(`/properties/${response.data.id}`);
+        }
+    } catch (error) {
+        console.error("Error creating property:", error);
+        // Handle errors, e.g., display a message to the user
+    }
+};
+*/}
+  
   
 
   const features =['Alarm', 'Furnished', 'Renovated', 'Hardwood floors', 'Fireplace', 'Fresh paint', 'Swimming Pool', 'Security System', 'Internet', 'Walk-in closets', 'Balcony, Deck, Patio', 'Fenced yard', 'Storage', 'Carpet']
@@ -119,8 +158,16 @@ export default function AddProperty() {
               <PropertyAttachement/>
               <Separator className='mt-4'/>
               <div className='flex justify-between mt-4'>
-                <Button className='w-24 dark:bg-zinc-950 text-white'>Cancel</Button>
-                <Button className='w-24 dark:bg-zinc-950 text-white'>Create</Button>
+                <Link
+                to='/manager/properties'
+                >
+                  <Button className='w-24 dark:bg-zinc-950 text-white'>Cancel</Button>
+                </Link>
+                <Button 
+                onClick={handleCreate}
+                className='w-24 dark:bg-zinc-950 text-white'>
+                  Create
+                </Button>
               </div>
             </CardContent>
 

@@ -11,12 +11,12 @@ export default function SelectHouseType() {
       <div
         onClick={() => setSelectedType('single')}
         className={`relative gap-3 items-center border rounded-lg p-4 cursor-pointer ${
-            selectedType == 'single' ? 'border-green-800 bg-zinc-950' : 'border-gray-600'
+            selectedType == 'single' ? 'dark:border-green-800 border-green-600 dark:bg-zinc-950 bg-zinc-400' : 'border-gray-600'
         }`}
         >
         <div>
             {selectedType === 'single' ? (
-                <CheckCircle className='text-green-500'/>
+                <CheckCircle className='dark:text-green-500 text-green-700'/>
             ): (
                 <Circle/>
             )}
@@ -32,12 +32,12 @@ export default function SelectHouseType() {
       <div
         onClick={() => setSelectedType('multi')}
         className={`items-center gap-3 border rounded-lg p-4 cursor-pointer ${
-            selectedType == 'multi' ? 'border-green-800 bg-zinc-950' : 'border-gray-600'
+            selectedType == 'multi' ? 'dark:border-green-800 border-green-600 dark:bg-zinc-950 bg-zinc-400' : 'border-gray-600'
         }`}
         >
         <div>
             {selectedType === 'multi' ? (
-                <CheckCircle className='text-green-500'/>
+                <CheckCircle className='dark:text-green-500 text-green-700'/>
             ): (
                 <Circle/>
             )}

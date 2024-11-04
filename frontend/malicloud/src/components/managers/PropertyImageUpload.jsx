@@ -67,8 +67,6 @@ export default function PropertyImageUpload() {
     multiple: true
   });
 
-
-
   // Remove Gallery image
   const removeGalleryImage = (index) => {
     setGalleryImages(prev => prev.filter((_, i) => i !== index));
@@ -103,7 +101,7 @@ export default function PropertyImageUpload() {
                 <div className='flex justify-between items-center mt-4'>
                   <button
                   onClick={handleCropButtonClick}
-                  className=' text-white '
+                  className=''
                   >
                     <Crop className='h-6'/>
                     <p className='text-[10px]'>Crop</p>
@@ -164,8 +162,6 @@ export default function PropertyImageUpload() {
                     Done
                   </Button>
                 </div>
-               
-              
             </div>
           )}
 
@@ -184,11 +180,11 @@ export default function PropertyImageUpload() {
             <h2 className='font-semibold'>Gallery</h2>
             <div
             {...getGalleryRootProps()}
-            className='flex gap-2 items-center rounded-lg text-center cursor-pointer bg-green-900 p-1 text-white'
+            className='flex gap-2 items-center rounded-lg text-center cursor-pointer bg-green-900 p-2 text-white'
             >
               <input {...getGalleryInputProps()} />
               <CloudUpload className=' h-6 w-6 '/>
-              <p className="">Upload photo</p>
+              <p className="">Upload photos</p>
             </div>
           </div>
           
