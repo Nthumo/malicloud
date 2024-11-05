@@ -86,7 +86,7 @@ export default function HomePage() {
       <Header/>
       <div className='flex justify-between md:ml-28 ml-14 md:mt-8 mt-4 md:mr-10 mr-4'>
         <h1 className=' md:text-lg text-[13px] font-bold'>Dashboard</h1>
-        <Link to='/add-tenant'>
+        <Link to='/manager/add-tenant'>
           <Button className='font-bold bg-green-600 hover:bg-green-500 flex md:gap-2 gap-1 dark:text-white text-black md:p-4 p-2 md:h-10 h-7'>
             <Plus className='w-4'/>
           <p className='md:text-[12px] text-[10px]'>Add Tenant</p>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import Header from '@/components/common/Header';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -107,10 +108,13 @@ export default function Tenants() {
               <ArrowDown className='w-5 h-5'/>
               Import
             </Button>
-            <Button className='flex gap-3 bg-green-600 hover:bg-green-700'>
-              <Plus className='w-6 h-6'/>
-              Add Tenant
-            </Button>
+            <Link to='/manager/add-tenant'>
+              <Button className='flex gap-3 bg-green-600 hover:bg-green-700'>
+                <Plus className='w-6 h-6'/>
+                Add Tenant
+              </Button>
+            </Link>
+            
           </div>
         </div>
         <div className='relative mt-8 ml-4 focus:outline-none'>

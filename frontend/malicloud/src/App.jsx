@@ -53,7 +53,6 @@ function App() {
           <Route path='/signup/property-manager' element={<PropertyManagerRegistration />}/>
           <Route path='/pay_once' element={<Once/>}/>
           <Route path='/recurring' element={<Recurring/>}/>
-          <Route path='/add-tenant' element={<AddTenant/>}/>
 
           <Route path='/tenant' element={<TenantSidebar/>}>
             <Route path='/tenant' element={<Dashboard/>}/>
@@ -77,6 +76,7 @@ function App() {
             </Route>
             <Route path='reports' element={<Reports/>}/>
             <Route path='tenants' element={<Tenants/>}/>
+            <Route path='add-tenant' element={<AddTenant/>}/>
           </Route>
         </Routes>
       </Router>
