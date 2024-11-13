@@ -1,14 +1,15 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import Header from '@/components/common/Header';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 import { Select, SelectContent, SelectTrigger, SelectItem, SelectValue } from '@/components/ui/select';
-import { ArrowUp } from 'lucide-react';
-import { data } from 'autoprefixer';
+import { ArrowUp, Plus } from 'lucide-react';
 import RequestStatus from '@/components/managers/piecharts/RequestStatus';
 import IssueTypes from '@/components/managers/barcharts/IssueTypes';
 import RequestsTrendAnalysis from '@/components/managers/linecharts/RequestsTrendAnalysis';
@@ -56,8 +57,16 @@ export default function Maintenance() {
       <title>Maintenance - MaliCloud</title>
     </Helmet>
     <Header/>
-    <div className='ml-32 mt-4 text-xl font-bold'>Maintenance</div>
-    <div className='ml-32 flex mt-4 gap-24'>
+    <div className='flex justify-between ml-32 mr-14 mt-8'>
+      <div className=' text-xl font-bold'>Maintenance requests</div>
+      <Link to='/manager/requests/submit-request'>
+        <Button className=' flex gap-2 bg-green-600 hover:bg-green-500'>
+          <Plus className='h-5 w-5'/> Add request
+        </Button>
+      </Link>
+    </div>
+    
+    <div className='ml-[145px] flex mt-8 gap-24'>
         <Card className='w-[160px] dark:text-gray-400 text-gray-800 bg-gray-400 bg-opacity-30 border-none'>
           <CardHeader className='p-2 text-center'>
             <CardTitle className='text-lg dark:text-white'>Total Requests</CardTitle>

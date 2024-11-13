@@ -66,7 +66,7 @@ export default function PropertiesPage() {
                     </CardContent>
                   </Card>
                 </Link>
-                <Link>
+                <Link to='/manager/requests/submit-request'>
                   <Card className='dark:hover:bg-zinc-900 hover:bg-zinc-300'>
                     <CardContent className='flex flex-col items-center p-3'>
                       <Wrench/>

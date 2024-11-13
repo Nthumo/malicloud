@@ -19,7 +19,7 @@ import {
  } from '@/components/ui/select';
 
 
- // Smaple data
+ // Sample data
 
  const tenants = [
   {
@@ -167,9 +167,11 @@ export default function Tenants() {
                     <p className='underline'>{tenant.phone}</p>
                     <p className='font-bold mt-4'>{tenant.propertiesCount} properties</p>
                     <Separator className='mt-4 '/>
-                    <Button className='bg-transparent hover:bg-transparent text-green-500 dark:hover:text-green-600 hover:text-gray-700'>
-                      View Profile
-                    </Button>
+                    <Link to='/manager/tenant-profile'>
+                      <Button className='bg-transparent hover:bg-transparent text-green-500 dark:hover:text-green-600 hover:text-gray-700'>
+                        View Profile
+                      </Button>
+                    </Link>
                   </div>
                 </div>
             </CardContent>

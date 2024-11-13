@@ -54,7 +54,7 @@ export default function ManagerSidebar() {
                 </li>
               </Link>
               <Link 
-              to='/manager/maintenance'
+              to='/manager/requests'
               className='bg-zinc-400 hover:bg-zinc-200 dark:bg-zinc-950 dark:hover:bg-zinc-900 p-1 rounded-lg md:w-12 w-8 group-hover:w-40'
               >
                 <li className='flex items-center gap-4'>

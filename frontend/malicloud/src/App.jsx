@@ -24,12 +24,15 @@ import Properties from './pages/Managers/Properties';
 import Reports from './pages/Managers/Reports';
 import Tenants from './pages/Managers/Tenants';
 import AddTenant from './pages/Managers/AddTenant';
+import TenantProfile from './pages/Managers/subpages/TenantProfile';
 import PropertyDetails from './pages/Managers/subpages/PropertyDetails';
 import Layout from './pages/Managers/ManagerLayout';
 import PropertiesPage from './pages/Managers/PropertiesPage';
 import EditProperty from './pages/Managers/subpages/PropertyDetails';
 import AddProperty from './pages/Managers/subpages/AddProperty';
-
+import Requests from './pages/Managers/Requests';
+import SubmitRequest from './pages/Managers/subpages/SubmitRequest';
+import LandLordDashboard from './pages/Landlords/Dashboard';
 
 
 function App() {
@@ -67,7 +70,10 @@ function App() {
             <Route path='accounting' element={<Accounting/>}/>
             <Route path='documents' element={<Documents/>}/>
             <Route path='leases' element={<Leases/>}/>
-            <Route path='maintenance' element={<Maintenance/>}/>
+            <Route path='requests' element={<Requests/>}>
+              <Route index element={<Maintenance/>}/>
+              <Route path='submit-request' element={<SubmitRequest/>}/>
+            </Route>
             <Route path='properties' element={<Properties/>}>
                 <Route index element={<PropertiesPage/>}/>
                 <Route path='property-details' element={<PropertyDetails/> }/>
@@ -77,6 +83,11 @@ function App() {
             <Route path='reports' element={<Reports/>}/>
             <Route path='tenants' element={<Tenants/>}/>
             <Route path='add-tenant' element={<AddTenant/>}/>
+            <Route path='tenant-profile' element={<TenantProfile/>}/>
+          </Route>
+
+          <Route path='/landlord' element={<LandLordDashboard/>}>
+
           </Route>
         </Routes>
       </Router>
