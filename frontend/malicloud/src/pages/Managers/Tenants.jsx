@@ -92,8 +92,8 @@ export default function Tenants() {
         <div className='flex items-center justify-between '>
           <div className='flex items-center gap-8 mt-8 ml-4'>
             <h1 className='text-xl font-bold'>Tenants</h1>
-            <Select className='focus:ring-0 focus:outline-none'>
-              <SelectTrigger className='md:w-[100px] w-[70px] border-none focus:ring-0 focus:outline-none'>
+            <Select>
+              <SelectTrigger className='md:w-[100px] w-[70px] border-none focus:ring-3'>
                 <SelectValue placeholder='Sort by'/>
               </SelectTrigger>
               <SelectContent>
@@ -117,12 +117,12 @@ export default function Tenants() {
             
           </div>
         </div>
-        <div className='relative mt-8 ml-4 focus:outline-none'>
+        <div className='relative mt-8 ml-4 focus:outline-1 focus:ring-3'>
           <Search className='absolute md:left-2 md:top-1 md:h-5 md:w-5 text-muted-foreground'/>
           <Input 
           type='search'
           placeholder='Search...' 
-          className='md:w-[150px] md:h-[25px] pl-9 focus-visible:outline-none focus:ring-0 focus:border-none'/>
+          className='md:w-[150px] md:h-[25px] pl-9 focus:ring-3 focus:border-none dark:border-white border-black'/>
         </div>
         <div className='grid grid-cols-4 gap-2 mt-6'>
         {tenants.map((tenant) => (

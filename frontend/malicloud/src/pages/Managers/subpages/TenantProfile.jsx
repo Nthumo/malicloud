@@ -106,7 +106,7 @@ export default function TenantProfile() {
                                         Actions
                                         <Ellipsis className='h-5 w-5'/>
                                     </MenubarTrigger>
-                                    <MenubarContent className='border  p-3 rounded-lg mr-[90px] mt-2'>
+                                    <MenubarContent className='border dark:bg-zinc-900 bg-zinc-200 p-3 rounded-lg mr-[90px] mt-2'>
                                         <MenubarItem className='mb-2'>Edit</MenubarItem>
                                         <Separator/>
                                         <MenubarItem className='mt-2 mb-2'>Remove Connection</MenubarItem>
@@ -217,6 +217,31 @@ export default function TenantProfile() {
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </TabsContent>
+                            <TabsContent value='leases'>
+                                <div className='text-center'>
+                                    Leases Content
+                                </div>
+                            </TabsContent>
+                            <TabsContent value='transactions'>
+                                <div className='text-center'>
+                                    Transactions Content
+                                </div>
+                            </TabsContent>
+                            <TabsContent value='insurance'>
+                                <div className='text-center'>
+                                    Insurance Content
+                                </div>
+                            </TabsContent>
+                            <TabsContent value='applications'>
+                                <div className='text-center'>
+                                    Appliactions Content
+                                </div>
+                            </TabsContent>
+                            <TabsContent value='requests'>
+                                <div className='text-center'>
+                                    Requests Content
                                 </div>
                             </TabsContent>
                         </Tabs>
