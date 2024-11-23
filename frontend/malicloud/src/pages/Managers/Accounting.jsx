@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/common/Header';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Input } from '@/components/ui/input';
-import { Search, Circle, CircleCheck, CircleChevronLeft, MoveUp, Ellipsis, ArrowUp } from 'lucide-react';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { Table, TableHeader, TableRow, TableHead, TableCell,TableBody } from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
+import { Select, SelectContent, SelectItem, SelectTrigger, } from '@/components/ui/select';
+import Transactions from './subpages/Transactions';
+import Balances from './subpages/Balances';
+import Recurring from './subpages/Recurring';
+import ManagementTools from './subpages/ManagementTools';
 
 export default function Accounting() {
   const[selectedCategory, setSelectedCategory] = useState('Transactions');
@@ -29,290 +26,33 @@ export default function Accounting() {
             <SelectTrigger className='font-bold w-[145px] border-none focus:outline-1 focus:ring-3 text-[16px]'>
               {selectedCategory}
             </SelectTrigger>
-            <SelectContent >
+            <SelectContent>
               <SelectItem value='Transactions' className='text-lg'>Transactions</SelectItem>
               <SelectItem value='Balances' className='text-lg'>Balances</SelectItem>
               <SelectItem value='Recurring' className='text-lg'>Recurring</SelectItem>
-              <SelectItem value='Tools' className='text-lg'>Tools</SelectItem>
+              <SelectItem value='Tools' className='text-lg'>Management tools</SelectItem>
             </SelectContent>
           </Select>
           <div className='mt-6'>
             {selectedCategory === 'Transactions' && (
               <>
-               <div className='flex gap-6'>
-                <Card className='w-[300px] h-[60px] border-none dark:bg-zinc-900 bg-zinc-200 p-2'>
-                  <h1 className='text-[14px] '>Outstanding</h1>
-                  <CardContent className='p-0'>
-                    <p className='font-bold text-xl'>Ksh. 20000</p>
-                  </CardContent>
-                </Card>
-                <Card className='w-[300px] h-[60px] border-none dark:bg-zinc-900 bg-zinc-200 p-2'>
-                  <h1 className='text-[14px] '>Paid</h1>
-                  <CardContent className='p-0'>
-                    <p className='font-bold text-xl'>Ksh. 30000</p>
-                  </CardContent>
-                </Card>
-                <Card className='w-[300px] h-[60px] border-none dark:bg-zinc-900 bg-zinc-200 p-2'>
-                  <h1 className='text-[14px] '>Overdue</h1>
-                  <CardContent className='p-0'>
-                    <p className='font-bold text-xl'>Ksh. 30000</p>
-                  </CardContent>
-                </Card>
-              </div>
-              <div className='relative mt-4 ml-0'>
-                <Search className='absolute left-2 top-1 h-5 w-5 text-muted-foreground'/>
-                <Input
-                type='search'
-                placeholder='Search...'
-                className='w-[150px] h-[25px] focus:border-none dark:border-gray-500 border-black pl-9'
-                />
-              </div>
-              <div>
-                <Tabs defaultValue='all' className='mt-4'>
-                  <TabsList className='gap-14'>
-                    <TabsTrigger value='all' className='dark:data-[state=active]:border-white data-[state=active]:border-black data-[state=active]:border-b-[4px] data-[state=active]:bg-transparent'>All</TabsTrigger>
-                    <TabsTrigger value='income' className='dark:data-[state=active]:border-white data-[state=active]:border-black  data-[state=active]:border-b-[4px] data-[state=active]:bg-transparent'>Income</TabsTrigger>
-                    <TabsTrigger value='expenses' className='dark:data-[state=active]:border-white data-[state=active]:border-black data-[state=active]:border-b-[4px] data-[state=active]:bg-transparent'>Expenses</TabsTrigger>
-                  </TabsList>
-                  <TabsContent value='all'>
-                    <div>
-                      <Card className='w-[950px] mb-8'>
-                        <CardContent className='p-0'>
-                        <Table>
-                          <TableHeader>
-                            <TableRow className='dark:hover:bg-zinc-900 hover:bg-zinc-100 dark:bg-zinc-900 bg-zinc-100 w-full'>
-                              <TableHead>Status</TableHead>
-                              <TableHead className='flex gap-1 items-center'>Due date <MoveUp className='h-4 w-4'/></TableHead>
-                              <TableHead>Category & property</TableHead>
-                              <TableHead>Contact</TableHead>
-                              <TableHead>Total</TableHead>
-                              <TableHead>Paid</TableHead>
-                              <TableHead></TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody className='hover:bg-transparent'>
-                            <TableRow className='hover:bg-transparent'>
-                              <TableCell>August 2024</TableCell>
-                            </TableRow>
-                            <TableRow className=' hover:bg-transparent'>
-                              <TableCell>
-                                <Badge variant='outline' className='bg-green-300 hover:bg-green-300 text-green-800 border-none'>
-                                  <CircleCheck className='h-4 w-4 text-green-500' stroke='currentColor' fill='green'/> 
-                                  <p className='pl-1'>Paid</p>
-                                </Badge>
-                              </TableCell>
-                              <TableCell>Aug 1</TableCell>
-                              <TableCell className='flex flex-col'>
-                                Acquisition
-                                <span className='text-[12px] text-muted-foreground'>Fine House</span>
-                              </TableCell>
-                              <TableCell>Jane Doe</TableCell>
-                              <TableCell>- ksh.20000</TableCell>
-                              <TableCell>ksh. 300</TableCell>
-                              <div className='mt-10'>
-                                <Ellipsis className='h-5 w-5 '/>
-                              </div>
-                            </TableRow>
-                            <TableRow className='hover:bg-transparent'>
-                              <TableCell>
-                                <Badge variant='destructive' className='bg-red-300 hover:bg-red-300 text-red-500 border-none'>
-                                  <CircleChevronLeft className='h-4 w-4 text-red-400' fill='red'/>
-                                  <p className='pl-1'>Overdue</p>
-                                </Badge>
-                              </TableCell>
-                              <TableCell>Aug 1</TableCell>
-                              <TableCell className='flex flex-col'>
-                                Acquisition
-                                <span className='text-[12px] text-muted-foreground'>Murang'a House</span>
-                              </TableCell>
-                              <TableCell>Jane Doe</TableCell>
-                              <TableCell>- ksh.20000</TableCell>
-                              <TableCell>ksh. 300</TableCell>
-                              <div className='mt-10'>
-                                <Ellipsis className='h-5 w-5 '/>
-                              </div>
-                            </TableRow>
-                            <TableRow className='hover:bg-transparent'>
-                              <TableCell>
-                                <Badge  className='bg-gray-200 hover:bg-gray-200 text-gray-600 border-none'>
-                                  <Circle className='h-4 w-4 text-gray-500' fill='gray'/>
-                                  <p className='pl-1'>Open</p>
-                                </Badge>
-                              </TableCell>
-                              <TableCell>Aug 1</TableCell>
-                              <TableCell className='flex flex-col'>
-                                Closing costs
-                                <span className='text-[12px] text-muted-foreground'>Murang'a House</span>
-                              </TableCell>
-                              <TableCell>Jane Doe</TableCell>
-                              <TableCell>- ksh.20000</TableCell>
-                              <TableCell>ksh. 300</TableCell>
-                              <div className='mt-10'>
-                                <Ellipsis className='h-5 w-5 '/>
-                              </div>
-                            </TableRow>
-                            <TableRow className='hover:bg-transparent'>
-                              <TableCell>July 2024</TableCell>
-                            </TableRow>
-                            <TableRow className='hover:bg-transparent'>
-                              <TableCell >
-                                <Badge variant='outline' className='bg-green-300 hover:bg-green-300 text-green-800 border-none'>
-                                  <CircleCheck className='h-4 w-4 text-green-500' stroke='currentColor' fill='green'/> 
-                                  <p className='pl-1'>Paid</p>
-                                </Badge>
-                              </TableCell>
-                              <TableCell>Aug 1</TableCell>
-                              <TableCell className='flex flex-col'>
-                                Management fess
-                                <span className='text-[12px] text-muted-foreground'>Fine House</span>
-                              </TableCell>
-                              <TableCell>Jane Doe</TableCell>
-                              <TableCell>- ksh.20000</TableCell>
-                              <TableCell>ksh. 300</TableCell>
-                              <div className='mt-10'>
-                                <Ellipsis className='h-5 w-5 '/>
-                              </div>
-                            </TableRow>
-                            <TableRow className='hover:bg-transparent'>
-                              <TableCell >
-                                <Badge variant='destructive' className='bg-red-300 hover:bg-red-300 text-red-500 border-none'>
-                                  <CircleChevronLeft className='h-4 w-4 text-red-400' fill='red'/>
-                                  <p className='pl-1'>Overdue</p>
-                                </Badge>
-                              </TableCell>
-                              <TableCell>Aug 1</TableCell>
-                              <TableCell className='flex flex-col'>
-                                Tenant charges & fees
-                                <span className='text-[12px] text-muted-foreground'>UpperHill House</span>
-                              </TableCell>
-                              <TableCell>Jane Doe</TableCell>
-                              <TableCell>- ksh.20000</TableCell>
-                              <TableCell>ksh. 300</TableCell>
-                              <div className='mt-10'>
-                                <Ellipsis className='h-5 w-5 '/>
-                              </div>
-                            </TableRow>
-                            <TableRow className='hover:bg-transparent'>
-                              <TableCell >
-                                <Badge  className='bg-gray-200 hover:bg-gray-200 text-gray-600 border-none'>
-                                  <Circle className='h-4 w-4 text-gray-500' fill='gray'/>
-                                  <p className='pl-1'>Open</p>
-                                </Badge>
-                              </TableCell>
-                              <TableCell>Aug 1</TableCell>
-                              <TableCell className='flex flex-col'>
-                                Closing costs
-                                <span className='text-[12px] text-muted-foreground'>Embu House</span>
-                              </TableCell>
-                              <TableCell>Jane Doe</TableCell>
-                              <TableCell>- ksh.20000</TableCell>
-                              <TableCell>ksh. 300</TableCell>
-                              <div className='mt-10'>
-                                <Ellipsis className='h-5 w-5 '/>
-                              </div>
-                            </TableRow>
-                          </TableBody>
-                        </Table>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </TabsContent>
-                  <TabsContent value='income'>
-                    <div>
-                      Income
-                    </div>
-                  </TabsContent>
-                  <TabsContent value='expenses'>
-                    <div>
-                      Expenses
-                    </div>
-                  </TabsContent>
-                </Tabs>
-              </div>
+              <Transactions/>
               </>
-             
             )}
             {selectedCategory === 'Balances' && (
               <>
-              <div>
-              <Tabs defaultValue='0-30' className='mt-4'>
-                <TabsList>
-                  <TabsTrigger value='0-30' className='data-[state=active]:border-b-[4px] dark:data-[state=active]:border-white data-[state=active]:border-black data-[state=active]:bg-transparent'>0-30 days</TabsTrigger>
-                  <TabsTrigger value='30-60' className='data-[state=active]:border-b-[4px] dark:data-[state=active]:border-white data-[state=active]:border-black data-[state=active]:bg-transparent'>30-60 days</TabsTrigger>
-                  <TabsTrigger value='60-90' className='data-[state=active]:border-b-[4px] dark:data-[state=active]:border-white data-[state=active]:border-black  data-[state=active]:bg-transparent'>60-90 days</TabsTrigger>
-                  <TabsTrigger value='all time' className='data-[state=active]:border-b-[4px] dark:data-[state=active]:border-white data-[state=active]:border-black  data-[state=active]:bg-transparent'>All time</TabsTrigger>
-                </TabsList>
-                <TabsContent value='0-30'>
-                  <Card className='mt-4 h-[400px] w-[1050px]'>
-                    <CardContent className='p-0'>
-                        <Table className=''>
-                          <TableHeader>
-                            <TableRow className='dark:bg-zinc-900 dark:hover:bg-zinc-900 bg-zinc-200 hover:bg-zinc-200'>
-                              <TableHead className='flex items-center gap-2'>Outstanding balance <MoveUp className='h-4 w-4'/></TableHead>
-                              <TableHead>Contact</TableHead>
-                              <TableHead></TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableRow className='hover:bg-transparent'>
-                            <TableCell>Ksh. 30000</TableCell>
-                            <TableCell>John Doe</TableCell>
-                            <TableCell className='flex gap-2'>
-                              Send notice <Ellipsis/>
-                            </TableCell>
-                          </TableRow>
-                          <TableRow className='hover:bg-transparent'>
-                            <TableCell>Ksh. 30000</TableCell>
-                            <TableCell>John Doe</TableCell>
-                            <TableCell className='flex gap-2'>
-                              Send notice <Ellipsis/>
-                            </TableCell>
-                          </TableRow>
-                          <TableRow className='hover:bg-transparent'>
-                            <TableCell>Ksh. 30000</TableCell>
-                            <TableCell>John Doe</TableCell>
-                            <TableCell className='flex gap-2'>
-                              Send notice <Ellipsis/>
-                            </TableCell>
-                          </TableRow>
-                          <TableRow className='hover:bg-transparent'>
-                            <TableCell>Ksh. 30000</TableCell>
-                            <TableCell>John Doe</TableCell>
-                            <TableCell className='flex gap-2'>
-                              Send notice <Ellipsis/>
-                            </TableCell>
-                          </TableRow>
-                        </Table>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                <TabsContent value='30-60'>
-                  <Card className='mt-4 h-[400px] w-[1050px]'>
-                    <h1 className='text-center'>30-60 days</h1>
-                  </Card>
-                </TabsContent>
-                <TabsContent value='60-90'>
-                  <Card className='mt-4 h-[400px] w-[1050px]'>
-                  <h1 className='text-center'>60-90 days</h1>
-                  </Card>
-                </TabsContent>
-                <TabsContent value='all time'>
-                  <Card className='mt-4 h-[400px] w-[1050px]'>
-                  <h1 className='text-center'>All time</h1>
-                  </Card>
-                </TabsContent>
-              </Tabs>
-              </div>
+              <Balances/>
               </>
             )}
             {selectedCategory === 'Recurring' && (
-              <div>
-                Recurring
-              </div>
+              <>
+                <Recurring/>
+              </>
             )}
             {selectedCategory === 'Tools' && (
-              <div>
-                Management tools
-              </div>
+              <>
+                <ManagementTools/>
+              </>
             )}
           </div>
         </div>
