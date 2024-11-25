@@ -55,6 +55,8 @@ export default function Leases() {
         <div className='relative mt-5'>
           <Search className='absolute left-2 top-1.5 h-4 w-4'/>
           <Input
+          type='search'
+          placeholder='Search...'
           className='w-[150px] h-[25px] pl-8 focus:border-none border-gray-600'
           />
         </div>
