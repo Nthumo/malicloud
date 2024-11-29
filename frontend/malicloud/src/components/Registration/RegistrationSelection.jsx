@@ -24,7 +24,7 @@ const RegistrationSelection = () => {
         </Link>
       </div>
       <div className="md:mt-36 mt-24 dark:text-white">
-        <h1 className="text-center space-y- text-2xl p-8">Welcome to<span className="text-gray-600 text-4xl font-bold text-orange-400">MaliCloud</span>. 
+        <h1 className="text-center space-y- text-2xl p-8">Welcome to <span className="text-gray-600 text-4xl font-bold text-orange-400">MaliCloud</span>. 
         <br/>
         <span className="italic dark:text-white text-xl">Sign in to your role here:</span>
         </h1>
@@ -60,5 +60,5 @@ const RegistrationSelection = () => {
       </>
     );
   };
-  
+
   export default RegistrationSelection;

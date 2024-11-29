@@ -84,7 +84,7 @@ const TenantRegistration = () => {
         <div className="relative flex items-center justify-center top-20 gap-y-4">
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
-            <p className="dark:text-white mb-8 font-bold">Enter your Credetials to create your account:</p>
+            <p className="dark:text-white mb-8 font-bold">Fill in the form to create your account</p>
                 <div className="grid grid-cols-2 gap-4 gap-x-8">
                     <div className="grid gap-2">
                     <FormField
@@ -169,7 +169,6 @@ const TenantRegistration = () => {
                                 {showPassword ? <EyeNoneIcon size={20}/> : <EyeOpenIcon size={20}/>}
                             </button>
                         </div>
-
                         <FormMessage />
                         </FormItem>
                     )}
@@ -199,7 +198,7 @@ const TenantRegistration = () => {
                         </button>
                         </div>
 
-                        <FormMessage />
+                        <FormMessage/>
                         </FormItem>
                     )}
                     />
@@ -208,10 +207,9 @@ const TenantRegistration = () => {
                     <Button type="submit" className="w-[100px] bg-black hover:bg-zinc-900 font-bold dark:text-orange-400 border">Submit</Button>
                 </div>
             </form>
-        </Form>
+            </Form>
             </div>
 
-            
         <div>
             <div className="absolute bottom-24 left-20 w-24 h-24 dark:bg-zinc-900 bg-zinc-400 transform rotate-45"></div>
         </div>
@@ -219,7 +217,6 @@ const TenantRegistration = () => {
             <div className="absolute top-48 right-20 w-24 h-24 dark:bg-zinc-900 bg-zinc-400 transform rotate-45"></div>
         </div>
         </>
-
     );
 };
 
