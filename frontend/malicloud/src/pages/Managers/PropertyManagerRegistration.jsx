@@ -129,12 +129,12 @@ const PropertyManagerRegistration = () => {
 
                         <FormField
                         control ={form.control}
-                        name = "lastName"
+                        name = "licenseNumber"
                         render={({ field }) => (
                             <FormItem>
-                            <FormLabel className="dark:text-white">Company name *</FormLabel>
+                            <FormLabel className="dark:text-white">License number *</FormLabel>
                             <FormControl className="w-[420px] bg-zinc-800 text-white">
-                                <Input placeholder="Enter your company name" {...field} />
+                                <Input placeholder="Enter your license number here" {...field} />
                             </FormControl>
                             <FormMessage />
                             </FormItem>
@@ -157,12 +157,12 @@ const PropertyManagerRegistration = () => {
                             />
                             <FormField
                             control ={form.control}
-                            name = "noOfUnits"
+                            name = "experienceYears"
                             render={({ field }) => (
                                 <FormItem>
-                                <FormLabel className="dark:text-white">Number of units *</FormLabel>
+                                <FormLabel className="dark:text-white">Experience Years *</FormLabel>
                                 <FormControl className="w-[200px] bg-zinc-800 text-white">
-                                    <Input placeholder="Number of units" {...field} />
+                                    <Input placeholder="Years of experience" {...field} />
                                 </FormControl>
                                 <FormMessage />
                                 </FormItem>
