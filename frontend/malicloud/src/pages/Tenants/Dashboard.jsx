@@ -9,7 +9,6 @@ import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import { Download, FileKey } from 'lucide-react';
 
-
 const leases = [
   {
     property: 'Fine House',
@@ -37,7 +36,6 @@ const leases = [
   }
 ]
 
-
 export default function Dashboard() {
   return (
     <>
@@ -49,15 +47,13 @@ export default function Dashboard() {
       <div className='grid flex-1 items-start gap-4 p-4 '>
         <div className='grid gap-8'>
           <div className='flex justify-center'>
-            <Card className='h-24 md:w-[300px] border-none'>
+            <Card className='h-24 md:w-[300px] border-none shadow-sm dark:shadow-white shadow-black'>
                 <CardHeader>
-                    <CardTitle className='text-orange-500 md:text-lg text-sm text-center mb-2'>Welcome back <span className='dark:text-white text-black'>[John Doe]</span></CardTitle>
+                    <CardTitle className='text-orange-500 md:text-lg text-sm text-center md:mb-2'>Welcome back <span className='dark:text-white text-black'>[John Doe]</span></CardTitle>
                     <CardDescription className='text-white text-center'>
                       <LiveDate/>
                     </CardDescription>
                 </CardHeader>
-                <CardFooter>
-                </CardFooter>
             </Card> 
           </div>
   
@@ -88,22 +84,20 @@ export default function Dashboard() {
                               <HoverCardContent className='dark:bg-zinc-900 dark:text-white w-[50px] h-[30px] text-center flex items-center justify-center text-sm'>Open</HoverCardContent>
                             </HoverCardTrigger>
                           </HoverCard>
-                          
                         </span>
                         <span className={`md:text-sm text-[11px] ${lease.status=== 'Active' ? 'text-green-700' : 'text-red-700'}`}>
                           {lease.status}
                         </span>
                     </div>
                   ))
-
                   }
                 </CardContent>
             </Card> 
 
             <Card className='md:h-[500px] h-[] md:w-[580px] w-[330px] md:ml-0 ml-9 border-none dark:bg-zinc-900 bg-zinc-300 md:rounded-none overflow-auto'>
-                <CardHeader className='md:p-3 p-2'>
-                    <CardTitle className='text-orange-500 md:text-xl text-[13px] font-bold'>Recently Viewed</CardTitle>
-                </CardHeader>
+              <CardHeader className='md:p-3 p-2'>
+                <CardTitle className='text-orange-500 md:text-xl text-[13px] font-bold'>Recently Viewed</CardTitle>
+              </CardHeader>
                 <CardContent className='flex flex-col gap-3'>
                   <Link to='#'>
                     <Card className='group dark:bg-zinc-950 border-none md:h-[96px] dark:text-white md:hover:scale-105'>
@@ -120,7 +114,6 @@ export default function Dashboard() {
                     </Card>
                   </Link>
 
-
                   <Link to='#'>
                     <Card className='group dark:bg-zinc-950 border-none md:h-[96px] text-white md:hover:scale-105'>
                         <CardContent className='flex justify-between items-center md:p-2 p-1'>
@@ -129,11 +122,13 @@ export default function Dashboard() {
                           />
                           <CardHeader className='flex items-center'>
                             <CardTitle className='md:text-sm text-[11px] dark:text-white text-black'>UpperHill House</CardTitle>
-                            <CardDescription className='md:text-sm text-[9px]'>377 UpperHill Estate 377 UpperHill Estate 377 UpperHill Estate</CardDescription>
+                            <CardDescription className='md:text-sm text-[9px]'>
+                              377 UpperHill Estate 377 UpperHill Estate 377 UpperHill Estate
+                            </CardDescription>
                           </CardHeader>
                           <Badge className={`bg-red-700 hover:bg-red-800 md:text-[10px] text-[9px]`}>Occupied</Badge>
                         </CardContent>
-                      </Card>
+                    </Card>
                   </Link>
 
                   <Link to='#'>
@@ -144,11 +139,13 @@ export default function Dashboard() {
                           />
                           <CardHeader className='flex items-center'>
                             <CardTitle className='md:text-sm text-[11px] dark:text-white text-black'>Embu House</CardTitle>
-                            <CardDescription className='md:text-sm text-[9px]'>111 Embu Estate 111 Embu Estate 111 Embu Estate</CardDescription>
+                            <CardDescription className='md:text-sm text-[9px]'>
+                              111 Embu Estate 111 Embu Estate 111 Embu Estate
+                            </CardDescription>
                           </CardHeader>
                           <Badge className={`bg-green-700 hover:bg-green-800 md:text-[10px] text-[9px]`}>Vacant</Badge>
                         </CardContent>
-                      </Card>
+                    </Card>
                   </Link>
 
                   <Link to='#'>
@@ -159,19 +156,20 @@ export default function Dashboard() {
                           />
                           <CardHeader className='flex items-center'>
                             <CardTitle className='md:text-sm text-[11px] dark:text-white text-black'>Murang'a House</CardTitle>
-                            <CardDescription className='md:text-sm text-[9px]'>32 Murang'a Estate 32 Murang'a Estate 32 Murang'a Estate</CardDescription>
+                            <CardDescription className='md:text-sm text-[9px]'>
+                              32 Murang'a Estate 32 Murang'a Estate 32 Murang'a Estate
+                            </CardDescription>
                           </CardHeader>
                           <Badge className={`bg-red-700 hover:bg-red-800 md:text-[10px] text-[9px]`}>Occupied</Badge>
                         </CardContent>
                     </Card>
                   </Link>
-                  </CardContent>
+                </CardContent>
             </Card>
           </div>
         </div>
       </div>
     </div>
     </>
-
   )
 }

@@ -16,13 +16,12 @@ import {
 import { useDarkMode } from '@/hooks/UseDarkMode';
 import {SunIcon, MoonIcon} from '@radix-ui/react-icons'
 
-
 export default function Header() {
     const [theme, toggleTheme] = useDarkMode();
 
   return (
     <>
-    <div className='relative flex items-center h-[60px] md:pl-28 pl-14 border-b md:mb-4'>
+    <div className='relative flex items-center md:h-[60px] md:pl-28 pl-10 border-b md:mb-4'>
         <div className='flex items-center '>
             <Link to='/' className="flex items-center">
                 <img src="/images/cloud-transparent.png" alt="logo" className='md:w-[100px] w-[40px]'/>
@@ -42,7 +41,7 @@ export default function Header() {
             </button>
         </div>
 
-        <div className='absolute md:right-16 right-7 flex items-center gap-2  p-2 rounded-xl'>
+        <div className='absolute md:right-16 right-9 flex items-center gap-2  p-2 rounded-xl'>
             <h4 className='md:font-bold md:text-[14px] text-[12px] dark:text-white text-black'>Profile</h4>
             <DropdownMenu className=''>
                 <DropdownMenuTrigger asChild>
@@ -68,12 +67,10 @@ export default function Header() {
                         <CircleUser className='w-6'/>
                         Log out
                     </DropdownMenuItem>
-
                 </DropdownMenuContent>
             </DropdownMenu>
         </div>
     </div>
-
     </>
   )
 }

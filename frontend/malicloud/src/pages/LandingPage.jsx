@@ -21,7 +21,7 @@ const LandingPage = () => {
      return (
         <>
         <div className="relative text-white ">
-            <div className="z-50 md:w-full p-4 pb-0 pt-0 dark:bg-zinc-900 bg-zinc-100 fixed flex md:justify-between md:gap-0 gap-[80px] top-0 shadow-sm shadow-zinc-500 ">
+            <div className="z-50 md:w-full p-4 pb-0 pt-0 dark:bg-zinc-900 bg-zinc-100 fixed flex md:justify-between md:gap-0 gap-[50px] top-0 shadow-sm shadow-zinc-500 ">
                 <div className='md:left-20 left-4 flex items-center'>
                     <Link to='/' className="flex items-center">
                     <img src="/images/cloud-transparent.png" alt="logo" className="md:w-[80px] w-[50px]"/>
@@ -63,15 +63,15 @@ const LandingPage = () => {
                     <div className="">
                         <h1 className="md:text-xl dark:text-orange-500 text-orange-700">Property Management Software</h1>
                     </div>
-                    <div className="md:left-20 p-1 flex flex-col md:space-y-4 space-y-2 md:mt-0 mt-12">
+                    <div className="md:left-20 p-1 flex flex-col md:space-y-4 space-y-2 md:mt-0 mt-4">
                         <h1 className="font-bold md:text-6xl text-lg dark:text-white text-black">The Only Required </h1>
                         <h1 className="font-bold md:text-5xl text-2xl dark:text-white text-black">Property Management Software</h1>
-                        <div className="md:w-[500px] w-[340px] md:pt-12 pt-8">
+                        <div className="md:w-[500px] w-[300px] md:pt-12 pt-6">
                             <p className="md:text-xl dark:text-white text-black"><span className="font-bold md:text-2xl text-lg">MaliCloud</span> bridges the gap between Landlords, Property Managers and Tenants. 
                                 Choose this Software today to simplify your property management with powerful, simple to use tools at your fingertips. 
                             </p>
                         </div>
-                        <div className="flex md:pt-12 pt-14 md:gap-8 gap-4">
+                        <div className="flex md:pt-12 pt-8 md:gap-8 gap-4">
                             <Link to='/signup'>
                                 <Button className='md:w-[200px] mt-8 w-[150px] md:h-[50px] h-[40px] text-xl dark:border dark:text-orange-400 text-white dark:bg-zinc-950 dark:border-white dark:hover:bg-zinc-900 bg-black hover:bg-zinc-900'>
                                     Get Started
@@ -146,8 +146,8 @@ const LandingPage = () => {
                     <Star className="bg-orange-500 rounded-full"/>
                     <Star className="bg-orange-500 rounded-full"/>
                 </div>
-                <div className="left-[180px] flex items-center md:gap-16 gap-8 dark:text-white text-black">
-                    <img src="/images/ai.jpeg" alt="me" className=" left-[200px] md:w-[120px] w-[90px] md:h-[120px] h-[90px] rounded-3xl mt-4" />
+                <div className="flex items-center md:gap-16 gap-6 dark:text-white text-black">
+                    <img src="/images/ai.jpeg" alt="ai-mirror" className=" left-[200px] md:w-[120px] w-[90px] md:h-[120px] h-[90px] rounded-3xl mt-4" />
                     <div className="md:w-[400px]">
                         <p className="md:text-[14px] text-[11px]">
                         "MaliCloud is the best tool I have worked with so far to manage my properties. MaliCloud is the best tool i have worked with so far to manage my properties.
@@ -164,7 +164,7 @@ const LandingPage = () => {
                 </Link>
             </div>
 
-            <div className="flex justify-center items-center md:gap-8 gap-2 mt-[120px] md:p-0 p-2">
+            <div className="flex justify-center items-center md:gap-8 gap-2 md:mt-[120px] mt-[55px] md:p-0 p-2">
                 <Card className='bg-red-400 md:w-[400px] md:h-[200px] border-none bg-opacity-50'>
                     <div className='text-center font-bold dark:text-white flex justify-center gap-2 p-4 items-center'>
                         <h1 className="md:text-[14px] text-[12px]">Without MaliCloud</h1> 
@@ -194,7 +194,7 @@ const LandingPage = () => {
             </div>
             
 
-            <div className="flex justify-center mt-[120px] mb-20 md:p-0 p-2">
+            <div className="flex justify-center md:mt-[120px] mt-[55px] mb-20 md:p-0 p-2">
                 <Card className="dark:text-white text-black md:w-[850px]">
                     <CardHeader>
                         <CardTitle className="text-center md:text-2xl text-lg font-bold">Frequently Asked Questions</CardTitle>
@@ -364,21 +364,21 @@ const LandingPage = () => {
                         </CardTitle>
                     </CardHeader>
                    
-                    <div className="absolute right-12 md:top-2 top-9 grid grid-cols-4 grid-flow-col justify-center gap-4 md:p-0 p-2">
+                    <div className="absolute right-12 md:top-2 top-9 grid md:grid-cols-4 grid-cols-2 md:grid-flow-col justify-center md:gap-4 gap-8 md:p-0 p-2">
                         <div className="p-2">
                             <h1 className="md:text-xl font-bold md:p-4 p-2">Features</h1>
                             <ul className="flex flex-col md:gap-3 gap-1.5">
                                 <Link>
-                                    <li className="hover:text-green-500 md:text-[14px] text-[12px] flex gap-1.5"> <span className="md:block hidden">Online</span>  Payments</li>
+                                    <li className="hover:text-green-500 md:text-[14px]  flex gap-1.5"> <span className="">Online</span>  Payments</li>
                                 </Link>
                                 <Link>
-                                    <li className="hover:text-green-500 md:text-[14px] text-[12px] flex gap-1.5"> <span className="md:block hidden">Tenant</span> Screening</li>
+                                    <li className="hover:text-green-500 md:text-[14px] text-[12px] flex gap-1.5"> <span className="">Tenant</span> Screening</li>
                                 </Link>
                                 <Link>
-                                    <li className="hover:text-green-500 md:text-[14px] text-[12px] flex gap-1.5">Listings <span className="md:block hidden">Website</span></li>
+                                    <li className="hover:text-green-500 md:text-[14px] text-[12px] flex gap-1.5">Listings <span className="">Website</span></li>
                                 </Link>
                                 <Link>
-                                    <li className="hover:text-green-500 md:text-[14px] text-[12px] flex gap-1.5"> <span className="md:block hidden">Premium</span> Leads</li>
+                                    <li className="hover:text-green-500 md:text-[14px] text-[12px] flex gap-1.5"> <span className="">Premium</span> Leads</li>
                                 </Link>
                                 <Link>
                                     <li className="hover:text-green-500">Lead Tracking</li>
