@@ -40,9 +40,9 @@ function TenantRent() {
     <title>Accounting - Tenant</title>
   </Helmet>
     <Header/>
-    <div className='relative top- grid gap-4 mb-4'>
+    <div className='relative grid gap-4 mb-4'>
       <div className='flex justify-center justify-between md:ml-20 md:mr-4 ml-16'>
-        <h1 className=' md:text-2xl font-bold'>Accounting</h1>
+        <h1 className='md:text-2xl font-bold'>Accounting</h1>
         <DropdownMenu className=''>
           <DropdownMenuTrigger className='border-none'>
             <button className='bg-green-600 dark:bg-green-900 hover:bg-green-500 dark:hover:bg-green-800 md:h-12 p-2 rounded-lg'>

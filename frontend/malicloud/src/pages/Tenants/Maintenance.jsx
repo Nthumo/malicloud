@@ -71,89 +71,94 @@ function TenantMaintenanceRequests() {
       <title>Maintenance - Tenant</title>
     </Helmet>
     <Header/>
-    <div className='relative h-svh'>
-      <h1 className='absolute md:left-32 left-12 font-bold md:text-xl text-[14px]'>Maintenance Requests</h1>
-      <div className='absolute right-16'>
-        <Button className='bg-green-600 hover:bg-green-500'>Schedule a request</Button>
+    <div className='relative'>
+      <div className='flex justify-between md:ml-28 ml-12 md:mr-12 mr-10 mb-6'>
+        <h1 className='font-bold md:text-xl text-sm'>Maintenance Requests</h1>
+        <Button className='bg-green-600 hover:bg-green-500 md:text-[12px] text-[11px] md:p-4 p-2'>Schedule a request</Button>
       </div>
-      <div className='text-xl absolute md:left-32 left-12 top-[50px] md:grid grid-cols-2 gap-16'>
+
+      <div className='text-xl md:flex justify-between md:space-y-0 space-y-4 md:ml-28 ml-12 md:mr-12 mr-10'>
+        {/**recent requests */}
         <Card className='md:w-[700px] w-[340px] md:h-[450px] bg-zinc-300 dark:bg-zinc-900'>
           <CardHeader className='p-3'>
-            <CardTitle className='md:text-lg text-[15px] '>Recent Requests</CardTitle>
+            <CardTitle className='md:text-lg text-[15px]'>Recent Requests</CardTitle>
           </CardHeader>
           <CardContent className='flex flex-col gap-4'>
             <Link to='#' className=''>
-            <Card className=' flex hover:bg-zinc-200 dark:bg-zinc-950 dark:hover:bg-zinc-800'>
-              <CardContent className='flex items-center space-x-4 text-sm pt-6'>
+            <Card className='flex hover:bg-zinc-200 dark:bg-zinc-950 dark:hover:bg-zinc-800'>
+              <CardContent className='flex items-center md:space-x-4 space-x-2 text-sm pt-6'>
                 <div className='text-sm'>Electrical</div>
                 <Separator orientation='vertical'/>
-                <div>Sockets stopped working yesterday and have...</div>
-                <Separator orientation='vertical'/>
+                <div className='md:block hidden'>Sockets stopped working yesterday and have...</div>
+                <Separator orientation='vertical' className='md:block hidden'/>
                 <div>On: 12/02/2024 - 20:11</div>
                 <Separator orientation='vertical'/>
-                <Badge className='absolute left-[560px]'>submitted</Badge>
+                <Badge className=''>submitted</Badge>
               </CardContent>
             </Card>
             </Link>
             <Link to='#' className=''>
             <Card className=' flex hover:bg-zinc-200 dark:bg-zinc-950 dark:hover:bg-zinc-800'>
-              <CardContent className='flex items-center space-x-4 text-sm pt-6'>
+              <CardContent className='flex items-center md:space-x-4 space-x-2 text-sm pt-6'>
                 <div className='text-sm'>Other</div>
-                <Separator orientation='vertical'/>
-                <div>Sockets stopped working yesterday and have...</div>
+                <Separator orientation='vertical' className='md:block hidden'/>
+                <div className='md:block hidden'>Sockets stopped working yesterday and have...</div>
                 <Separator orientation='vertical'/>
                 <div>On: 12/02/2024 - 20:11</div>
                 <Separator orientation='vertical'/>
-                <Badge className='absolute left-[560px] dark:text-white bg-red-800 hover:bg-red-900'>Cancelled</Badge>
+                <Badge className='dark:text-white bg-red-800 hover:bg-red-900'>Cancelled</Badge>
               </CardContent>
             </Card>
             </Link>
             <Link to='#' className=''>
             <Card className='flex hover:bg-zinc-200 dark:bg-zinc-950 dark:hover:bg-zinc-800'>
-              <CardContent className='flex items-center space-x-4 text-sm pt-6'>
+              <CardContent className='flex items-center md:space-x-4 space-x-2 text-sm md:pt-6 pt-4'>
                 <div className='text-sm'>Electrical</div>
-                <Separator orientation='vertical'/>
-                <div>Sockets stopped working yesterday and have...</div>
+                <Separator orientation='vertical' className='md:block hidden'/>
+                <div className='md:block hidden'>Sockets stopped working yesterday and have...</div>
                 <Separator orientation='vertical'/>
                 <div>On: 12/02/2024 - 20:11</div>
                 <Separator orientation='vertical'/>
-                <Badge className='absolute left-[560px] bg-blue-500 hover:bg-blue-600'>In progress</Badge>
+                <Badge className='bg-blue-500 hover:bg-blue-600 truncate'>In progress</Badge>
               </CardContent>
             </Card>
             </Link>
             <Link to='#' className=''>
             <Card className=' flex hover:bg-zinc-200 dark:bg-zinc-950 dark:hover:bg-zinc-800'>
-              <CardContent className='flex items-center space-x-4 text-sm pt-6'>
+              <CardContent className='flex items-center md:space-x-4 space-x-2 text-sm pt-6'>
                 <div className='text-sm'>Plumbing</div>
+                <Separator orientation='vertical' className='md:block hidden'/>
+                <div className='md:block hidden'>Sockets stopped working yesterday and have...</div>
                 <Separator orientation='vertical'/>
-                <div>Sockets stopped working yesterday and have...</div>
+                <div className=''>On: 12/02/2024 - 20:11</div>
                 <Separator orientation='vertical'/>
-                <div>On: 12/02/2024 - 20:11</div>
-                <Separator orientation='vertical'/>
-                <Badge className='absolute left-[560px] bg-green-600 hover:bg-green-700'>completed</Badge>
+                <Badge className='bg-green-600 hover:bg-green-700'>completed</Badge>
               </CardContent>
             </Card>
             </Link>
             
           </CardContent>
         </Card>
-
-        <Card className='absolute md:right-[60px] w-[400px] bg-zinc-300 dark:bg-zinc-900'>
+        {/**make requests */}
+        <Card className='md:w-[400px] w-[340px] bg-zinc-300 dark:bg-zinc-900'>
           <CardHeader>
-            <CardTitle className='text-lg'>Make a request</CardTitle>
-            <CardContent>
-              <div className='absolute right-4 flex items-center gap-2 p-2 rounded-xl '>
-              <Label className='text-sm font-bold opacity-100'>Emergency ?</Label>
-                <Switch className='dark:data-[state=unchecked]:bg-white data-[state=unchecked]:bg-zinc-600 data-[state=checked]:bg-green-500'/>
+            <div className='flex justify-between items-center'>
+              <CardTitle className='md:text-lg text-[14px]'>Make a request</CardTitle>
+              <div className='flex items-center gap-2 p-2 rounded-xl '>
+                  <Label className='text-sm font-bold opacity-100'>Emergency ?</Label>
+                  <Switch className='dark:data-[state=unchecked]:bg-white data-[state=unchecked]:bg-zinc-600 data-[state=checked]:bg-green-500'/>
               </div>
+            </div>
+          </CardHeader>
+            <CardContent>
               <Form {...form} className=''>
-                <form action="" onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
+                <form action="" onSubmit={form.handleSubmit(onSubmit)} className='md:space-y-8'>
                   <FormField
                   control={form.control}
                   name='type'
                   className=''
                   render={({field}) =>(
-                    <FormItem className='mt-8'>
+                    <FormItem className=''>
                       <FormLabel>Type *</FormLabel>
                       <Select className=''>
                         <FormControl>
@@ -173,7 +178,7 @@ function TenantMaintenanceRequests() {
                       </div>
                       <div className=''>
                         <FormLabel>Upload File <span className='text-xs'>(optional)</span></FormLabel>
-                        <Input type='file' className='dark:text-white dark:bg-zinc-700'/>
+                        <Input type='file' className='dark:text-white dark:bg-zinc-700 cursor-pointer'/>
                       </div>
                     </FormItem>
                   )}
@@ -184,11 +189,12 @@ function TenantMaintenanceRequests() {
                 </form>
               </Form>
             </CardContent>
-          </CardHeader>
+          
         </Card>
       </div>
-      <div className='absolute bottom-[0px] flex justify-center'>
-        <Card className='border-none h-[400px] w-[800px] mb-8'>
+      {/**Frequently ask quiz */}
+      <div className='flex justify-center md:mt-8 mt-4'>
+        <Card className='border-none h-[400px] md:w-[800px] w-[340px] mb-8'>
           <CardHeader>
             <CardTitle className='text-center'>Frequently Asked Questions</CardTitle>
           </CardHeader>
