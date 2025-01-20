@@ -194,12 +194,12 @@ function TenantMaintenanceRequests() {
       </div>
       {/**Frequently ask quiz */}
       <div className='flex justify-center md:mt-8 mt-4'>
-        <Card className='border-none h-[400px] md:w-[800px] w-[340px] mb-8'>
+        <Card className='border-none md:w-[800px] w-[340px] mb-8'>
           <CardHeader>
             <CardTitle className='text-center'>Frequently Asked Questions</CardTitle>
           </CardHeader>
           <CardContent>
-            <Accordion type='single' collapsible>
+            <Accordion type='single' collapsible className='md:text-[14px] text-[12px]'>
               <AccordionItem value='item-1'>
                 <AccordionTrigger>How do I submit a maintenance request?</AccordionTrigger>
                 <AccordionContent>

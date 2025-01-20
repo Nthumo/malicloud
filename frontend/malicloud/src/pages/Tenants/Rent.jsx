@@ -76,7 +76,7 @@ function TenantRent() {
                 <CardTitle className='md:text-lg text-sm p-0 dark:text-white text-center '>Outstanding</CardTitle>
                 <CardContent className='md:h-[30px] h-[13px]'>
                   <div className='md:text-2xl font-bold p-0 text-orange-500 text-center'>
-                  Ksh. 10000
+                  Ksh. 10,000
                   </div>
                 </CardContent>
               </div>
@@ -84,7 +84,7 @@ function TenantRent() {
                 <CardTitle className='md:text-lg text-sm p-0 dark:text-white text-center '>Total spend</CardTitle>
                 <CardContent className='md:h-[30px] h-[13px]'>
                   <div className='md:text-2xl text-sm font-bold p-0 text-orange-500 text-center'>
-                  Ksh. 100,3000
+                  Ksh. 100,300
                   </div>
                 </CardContent>
               </div>              
