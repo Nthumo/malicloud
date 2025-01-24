@@ -47,68 +47,67 @@ function TenantFileManager() {
       <title>File manager - Tenant</title>
     </Helmet>
     <Header/>
-    <div className='md:ml-24 ml-10'>
+    <div className='md:ml-24 ml-11'>
       <h1 className='md:text-xl font-bold'>Files Manager</h1>
       <div className='md:w-[1200px] w-[350px] grid grid-cols-4 md:gap-8 gap-2 md:mt-2 mt-12'>
         <Card className='md:p-0 p-1'>
           <CardHeader className='md:p-2 p-1'>
-            <CardTitle className='md:text-lg text-sm md:ml-4 text-orange-500'>All Files</CardTitle>
+            <CardTitle className='flex justify-center md:justify-start md:text-lg text-sm md:ml-4 text-orange-500'>All Files</CardTitle>
           </CardHeader>
-          <CardContent className=''>
-            <h1 className='md:text-2xl text-sm font-bold'>1359</h1>
+          <CardContent className='md:p-3 p-1'>
+            <h1 className='flex justify-center md:justify-start md:text-2xl text-sm font-bold'>1359</h1>
           </CardContent>
-          <CardFooter className=''>
-            <p className='md:text-[14px] text-sm'>1000 MB/500 GB used</p>
+          <CardFooter className='p-0'>
+            <p className='flex justify-center md:justify-start text-center md:text-[14px] text-[8.5px]'>1000 MB/500 GB used</p>
           </CardFooter>
         </Card>
         <Card className=' '>
           <CardHeader className='md:p-2 p-1'>
-            <CardTitle className='md:text-lg text-sm md:ml-4 text-orange-500'>Images</CardTitle>
+            <CardTitle className='flex justify-center md:justify-start md:text-lg text-sm md:ml-4 text-orange-500'>Images</CardTitle>
           </CardHeader>
-          <CardContent className='top-6'>
-            <h1 className='md:text-2xl text-sm font-bold'>111</h1>
+          <CardContent className='md:p-2 p-1'>
+            <h1 className='flex justify-center md:justify-start md:text-2xl text-sm font-bold'>111</h1>
           </CardContent>
-          <CardFooter className=''>
-            <p className=''>0 MB/500 MB used</p>
+          <CardFooter className='md:p-2 p-1'>
+            <p className='flex justify-center md:justify-start text-center md:text-[14px] text-[8.5px]'>10 MB/500 MB used</p>
           </CardFooter>
         </Card>
         <Card className=''>
           <CardHeader className='md:p-2 p-1'>
-            <CardTitle className='md:text-lg text-sm md:ml-4 text-orange-500'>Documents</CardTitle>
+            <CardTitle className='flex justify-center md:justify-start md:text-lg text-sm md:ml-4 text-orange-500'>Documents</CardTitle>
           </CardHeader>
-          <CardContent className='top-6'>
-            <h1 className='text-2xl font-bold'>1234</h1>
+          <CardContent className='md:p-2 p-1'>
+            <h1 className='flex justify-center md:justify-start md:text-2xl text-sm font-bold'>1234</h1>
           </CardContent>
-          <CardFooter className=''>
-            <p>0 MB/500 MB used</p>
+          <CardFooter className='md:p-2 p-1'>
+            <p className='flex justify-center md:justify-start text-center md:text-[14px] text-[8.5px]'>102 MB/500 MB used</p>
           </CardFooter>
         </Card>
         <Card className=''>
-          <CardHeader className='md:p-2'>
-            <CardTitle className='ml-4 text-lg text-orange-500'>Videos</CardTitle>
+          <CardHeader className='md:p-2 p-1'>
+            <CardTitle className='flex justify-center md:justify-start md:ml-4 md:text-lg text-sm text-orange-500'>Videos</CardTitle>
           </CardHeader>
-          <CardContent className=''>
-            <h1 className='text-2xl font-bold'>14</h1>
+          <CardContent className='md:p-2 p-1'>
+            <h1 className='flex justify-center md:justify-start md:text-2xl text-sm font-bold'>14</h1>
           </CardContent>
-          <CardFooter className=''>
-            <p>0 MB/500 MB used</p>
+          <CardFooter className='md:p-2 p-1'>
+            <p className='flex justify-center md:justify-start text-center md:text-[14px] text-[8.5px]'>22 MB/500 MB used</p>
           </CardFooter>
         </Card>
       </div>
 
-      <div className='relative mt-8 flex md:gap-[570px]'>
+      <div className='relative mt-8 flex md:gap-[570px] gap-[144px]'>
         <div>
-          <Search className='absolute top-2 left-2 h-5 w-5'/>
+          <Search className='absolute top-2.5 md:top-2 left-2 h-4 md:h-5 w-4 md:w-5 foreground-muted'/>
           <Input
           type='search'
           placeholder='Search here...'
-          className='pl-8 h-[30px] w-[220px]'
+          className='pl-8 md:h-[30px] h-[30px] md:w-[220px] w-[120px] text-sm'
           />
         </div>
         <div>
-          <Plus className='absolute ml-2 top-2 w-6 h-6'/>
           <Select>
-            <SelectTrigger className='w-[120px] pl-8 border-dotted ml-2'>
+            <SelectTrigger className='text-sm'>
               <SelectValue placeholder='File type' className=''/>
             </SelectTrigger>
             <SelectContent>
@@ -124,79 +123,79 @@ function TenantFileManager() {
       </div>
 
       <div className='mt-8 md:w-[900px] w-[350px] h-[500px] pb-8 '>
-        <Table className=''>
+        <Table className='md'>
           <TableHeader>
             <TableRow className='hover:bg-transparent'>
-              <TableHead className='w-100px'>Name</TableHead>
-              <TableHead>Type</TableHead>
-              <TableHead>Size</TableHead>
-              <TableHead className=''>Date </TableHead>
-              <TableHead>Download</TableHead>
-              <TableHead>Delete</TableHead>
+              <TableHead className='p-0 md:p-3'>Name</TableHead>
+              <TableHead className='hidden md:block'>Type</TableHead>
+              <TableHead className='p-0 md:p-3'>Size</TableHead>
+              <TableHead className='p-0 md:p-3'>Date </TableHead>
+              <TableHead className='p-0 md:p-3'>Save</TableHead>
+              <TableHead className='pl-5 md:p-3'>Delete</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             <TableRow className='hover:bg-transparent'>
-              <TableCell>Repair.jpeg</TableCell>
-              <TableCell>Image</TableCell>
-              <TableCell>40KB</TableCell>
-              <TableCell className=''>12/04/2022</TableCell>
-              <TableCell className='w-6'>
+              <TableCell className='p-0 md:p-3'>Repair.jpeg</TableCell>
+              <TableCell className='hidden md:block'>Image</TableCell>
+              <TableCell className='p-0 md:p-3'>40KB</TableCell>
+              <TableCell className='p-0 md:p-3'>12/04/2022</TableCell>
+              <TableCell className='p-0 md:p-3'>
                 <a href=''>
-                  <Download className='w-6 text-green-500'/>
+                  <Download className='md:w-6 w-5 text-green-500'/>
                 </a>
               </TableCell>
-              <TableCell className='w-6'>
+              <TableCell className='pl-5 md:p-3'>
                 <Link>
-                  <Trash2 className='w-6 text-red-700'/>
+                  <Trash2 className='md:w-6 w-5 text-red-700'/>
                 </Link>
               </TableCell>
             </TableRow>
             <TableRow className='hover:bg-transparent'>
-              <TableCell>Repair.jpeg</TableCell>
-              <TableCell>Image</TableCell>
-              <TableCell>40KB</TableCell>
-              <TableCell className=''>12/04/2022</TableCell>
-              <TableCell className='w-6'>
+              <TableCell className='p-0 md:p-3'>Repair.jpeg</TableCell>
+              <TableCell className='hidden md:block'>Image</TableCell>
+              <TableCell className='p-0 md:p-3'>40KB</TableCell>
+              <TableCell className='p-0 md:p-3'>12/04/2022</TableCell>
+              <TableCell className='p-0 md:p-3'>
                 <Link>
-                  <Download className='w-6 text-green-500'/>
+                  <Download className='md:w-6 w-5 text-green-500'/>
                 </Link>
               </TableCell>
-              <TableCell className='w-6'>
+              <TableCell className='pl-5 md:p-3'>
                 <Link>
-                  <Trash2 className='w-6 text-red-700'/>
-                </Link>
-              </TableCell>
-            </TableRow>
-            <TableRow className='hover:bg-transparent'>
-              <TableCell>tap.mp4</TableCell>
-              <TableCell>Video</TableCell>
-              <TableCell>4MB</TableCell>
-              <TableCell className=''>12/04/2022</TableCell>
-              <TableCell className='w-6'>
-                <Link>
-                  <Download className='w-6 text-green-500'/>
-                </Link>
-              </TableCell>
-              <TableCell className='w-6'>
-                <Link>
-                  <Trash2 className='w-6 text-red-700'/>
+                  <Trash2 className='md:w-6 w-5 text-red-700'/>
                 </Link>
               </TableCell>
             </TableRow>
             <TableRow className='hover:bg-transparent'>
-              <TableCell>july.pdf</TableCell>
-              <TableCell>PDF</TableCell>
-              <TableCell>70KB</TableCell>
-              <TableCell className=''>12/04/2024</TableCell>
-              <TableCell className='w-6'>
+              <TableCell className='p-0 md:p-3'>tap.mp4</TableCell>
+              <TableCell className='hidden md:block'>Video</TableCell>
+              <TableCell className='p-0 md:p-3'>4MB</TableCell>
+              <TableCell className='p-0 md:p-3'>12/04/2022</TableCell>
+              <TableCell className='w-6 p-0 md:p-3'>
                 <Link>
-                  <Download className='w-6 text-green-500'/>
+                  <Download className='md:w-6 w-5 text-green-500'/>
                 </Link>
               </TableCell>
-              <TableCell className='w-6'>
+              <TableCell className='pl-5 md:p-3'>
                 <Link>
-                  <Trash2 className='w-6 text-red-700'/>
+                  <Trash2 className='md:w-6 w-5 text-red-700'/>
+                </Link>
+              </TableCell>
+            </TableRow>
+            <TableRow className='hover:bg-transparent p-0'>
+              <TableCell className='p-0 md:p-3'>july.pdf</TableCell>
+              <TableCell className='hidden md:block'>PDF</TableCell>
+              <TableCell className='p-0 md:p-3'>70KB</TableCell>
+              <TableCell className='p-0 md:p-3'>12/04/2024</TableCell>
+              <TableCell className='w-6 p-0 md:p-3'>
+                <Link>
+                  <Download className='md:w-6 w-5 text-green-500'/>
+                </Link>
+              </TableCell>
+              <TableCell className='pl-5 md:p-3'>
+                <Link>
+                  <Trash2 className='md:w-6 w-5 text-red-700'/>
                 </Link>
               </TableCell>
             </TableRow>
@@ -205,8 +204,8 @@ function TenantFileManager() {
       </div>
 
       <div className='absolute md:top-[290px] top-[60px] md:right-24 right-4 flex md:flex-col gap-4'>
-        <Button className='relative bg-green-700 hover:bg-green-800 dark:text-white cursor-pointer md:w-[150px] w-[100px]'>
-          <Plus className='absolute md:left-2 right-3 md:w-6 w-5 md:h-6 w-5'/>
+        <Button className='relative bg-green-700 hover:bg-green-800 dark:text-white cursor-pointer md:w-[150px] w-[90px] h-[30px] md:h-[37px]'>
+          <Plus className='absolute md:left-2 right-1.5 md:w-6 w-5 md:h-6 w-5'/>
           <label
           htmlFor='file-upload'
           className='md:pl-8 cursor-pointer md:text-[12.5px] text-[11px]'
@@ -221,11 +220,11 @@ function TenantFileManager() {
           />
         </Button>
         
-        <Button className='relative bg-red-900 dark:text-white hover:bg-red-950 md:w-[150px] w-[100px]'>
-          <Trash2 className='absolute md:left-2 right-3 md:w-6 w-5 md:h-6 w-5'/>
+        <Button className='relative bg-red-900 dark:text-white hover:bg-red-950 md:w-[150px] w-[90px] h-[30px] md:h-[37px]'>
+          <Trash2 className='absolute left-2 md:w-6 w-5 md:h-6 h-5'/>
           <label
           htmlFor='view-trash'
-           className='font-bold md:text-[12.5px] text-[11px]'>View Trash</label>
+           className='md:pl-0 pl-6 font-bold md:text-[12.5px] text-[10px] cursor-pointer'>View Trash</label>
         </Button>
       </div>
     </div>
