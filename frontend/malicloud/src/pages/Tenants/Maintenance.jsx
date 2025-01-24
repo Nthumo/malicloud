@@ -189,7 +189,6 @@ function TenantMaintenanceRequests() {
                 </form>
               </Form>
             </CardContent>
-          
         </Card>
       </div>
       {/**Frequently ask quiz */}

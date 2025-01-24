@@ -35,59 +35,68 @@ import {
 import { Button } from '@/components/ui/button';
 
 function TenantFileManager() {
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      console.log(`File selected: ${file.name}`);
+    }
+  };
   return (
     <>
     <Helmet>
       <title>File manager - Tenant</title>
     </Helmet>
     <Header/>
-    <h1 className='absolute top-[90px] left-[180px] text-xl font-bold'>Files Manager</h1>
-    <div className='relative top-12 grid grid-cols-4 gap-2 h-[90px]'>
-      <Card className='relative left-[163px] w-[250px]'>
-        <CardHeader className='p-2'>
-          <CardTitle className='text-lg text-center text-orange-500'>All Files</CardTitle>
-        </CardHeader>
-        <CardContent className='relative top-6'>
-          <h1 className='text-2xl font-bold'>1359</h1>
-        </CardContent>
-        <CardFooter className='absolute top-16 left-24'>
-          <p>0 MB/500 MB used</p>
-        </CardFooter>
-      </Card>
-      <Card className='relative left-32 w-[250px]'>
-        <CardHeader className='p-2'>
-          <CardTitle className='text-lg text-center text-orange-500'>Images</CardTitle>
-        </CardHeader>
-        <CardContent className='relative top-6'>
-          <h1 className='text-2xl font-bold'>111</h1>
-        </CardContent>
-        <CardFooter className='absolute top-16 left-24'>
-          <p>0 MB/500 MB used</p>
-        </CardFooter>
-      </Card>
-      <Card className='relative left-16 w-[250px]'>
-        <CardHeader className='p-2'>
-          <CardTitle className='text-lg text-center text-orange-500'>Documents</CardTitle>
-        </CardHeader>
-        <CardContent className='relative top-6'>
-          <h1 className='text-2xl font-bold'>1234</h1>
-        </CardContent>
-        <CardFooter className='absolute top-16 left-24'>
-          <p>0 MB/500 MB used</p>
-        </CardFooter>
-      </Card>
-      <Card className='w-[250px]'>
-        <CardHeader className='p-2'>
-          <CardTitle className='text-lg text-orange-500 text-center'>Videos</CardTitle>
-        </CardHeader>
-        <CardContent className='relative top-6'>
-          <h1 className='text-2xl font-bold'>14</h1>
-        </CardContent>
-        <CardFooter className='absolute right-24 top-16'>
-          <p>0 MB/500 MB used</p>
-        </CardFooter>
-      </Card>
-      <div className='relative left-48 top-12 flex justify-between gap-[560px]'>
+    <div className='md:ml-24 ml-10'>
+      <h1 className='md:text-xl font-bold'>Files Manager</h1>
+      <div className='md:w-[1200px] w-[350px] grid grid-cols-4 md:gap-8 gap-2 md:mt-2 mt-12'>
+        <Card className='md:p-0 p-1'>
+          <CardHeader className='md:p-2 p-1'>
+            <CardTitle className='md:text-lg text-sm md:ml-4 text-orange-500'>All Files</CardTitle>
+          </CardHeader>
+          <CardContent className=''>
+            <h1 className='md:text-2xl text-sm font-bold'>1359</h1>
+          </CardContent>
+          <CardFooter className=''>
+            <p className='md:text-[14px] text-sm'>1000 MB/500 GB used</p>
+          </CardFooter>
+        </Card>
+        <Card className=' '>
+          <CardHeader className='md:p-2 p-1'>
+            <CardTitle className='md:text-lg text-sm md:ml-4 text-orange-500'>Images</CardTitle>
+          </CardHeader>
+          <CardContent className='top-6'>
+            <h1 className='md:text-2xl text-sm font-bold'>111</h1>
+          </CardContent>
+          <CardFooter className=''>
+            <p className=''>0 MB/500 MB used</p>
+          </CardFooter>
+        </Card>
+        <Card className=''>
+          <CardHeader className='md:p-2 p-1'>
+            <CardTitle className='md:text-lg text-sm md:ml-4 text-orange-500'>Documents</CardTitle>
+          </CardHeader>
+          <CardContent className='top-6'>
+            <h1 className='text-2xl font-bold'>1234</h1>
+          </CardContent>
+          <CardFooter className=''>
+            <p>0 MB/500 MB used</p>
+          </CardFooter>
+        </Card>
+        <Card className=''>
+          <CardHeader className='md:p-2'>
+            <CardTitle className='ml-4 text-lg text-orange-500'>Videos</CardTitle>
+          </CardHeader>
+          <CardContent className=''>
+            <h1 className='text-2xl font-bold'>14</h1>
+          </CardContent>
+          <CardFooter className=''>
+            <p>0 MB/500 MB used</p>
+          </CardFooter>
+        </Card>
+      </div>
+
+      <div className='relative mt-8 flex md:gap-[570px]'>
         <div>
           <Search className='absolute top-2 left-2 h-5 w-5'/>
           <Input
@@ -97,10 +106,10 @@ function TenantFileManager() {
           />
         </div>
         <div>
-          <Plus className='absolute top-2 w-6 h-6'/>
+          <Plus className='absolute ml-2 top-2 w-6 h-6'/>
           <Select>
-            <SelectTrigger className='w-[120px] pl-8 border-dotted'>
-              <SelectValue placeholder='File type' className='pl-8'/>
+            <SelectTrigger className='w-[120px] pl-8 border-dotted ml-2'>
+              <SelectValue placeholder='File type' className=''/>
             </SelectTrigger>
             <SelectContent>
               <SelectItem value='images'>Images</SelectItem>
@@ -113,10 +122,11 @@ function TenantFileManager() {
           </Select>
         </div>
       </div>
-      <div className='absolute top-52 left-48  w-[900px] h-[500px] pb-8 '>
+
+      <div className='mt-8 md:w-[900px] w-[350px] h-[500px] pb-8 '>
         <Table className=''>
           <TableHeader>
-            <TableRow className=''>
+            <TableRow className='hover:bg-transparent'>
               <TableHead className='w-100px'>Name</TableHead>
               <TableHead>Type</TableHead>
               <TableHead>Size</TableHead>
@@ -126,7 +136,7 @@ function TenantFileManager() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            <TableRow>
+            <TableRow className='hover:bg-transparent'>
               <TableCell>Repair.jpeg</TableCell>
               <TableCell>Image</TableCell>
               <TableCell>40KB</TableCell>
@@ -142,7 +152,7 @@ function TenantFileManager() {
                 </Link>
               </TableCell>
             </TableRow>
-            <TableRow>
+            <TableRow className='hover:bg-transparent'>
               <TableCell>Repair.jpeg</TableCell>
               <TableCell>Image</TableCell>
               <TableCell>40KB</TableCell>
@@ -158,7 +168,7 @@ function TenantFileManager() {
                 </Link>
               </TableCell>
             </TableRow>
-            <TableRow>
+            <TableRow className='hover:bg-transparent'>
               <TableCell>tap.mp4</TableCell>
               <TableCell>Video</TableCell>
               <TableCell>4MB</TableCell>
@@ -174,7 +184,7 @@ function TenantFileManager() {
                 </Link>
               </TableCell>
             </TableRow>
-            <TableRow>
+            <TableRow className='hover:bg-transparent'>
               <TableCell>july.pdf</TableCell>
               <TableCell>PDF</TableCell>
               <TableCell>70KB</TableCell>
@@ -193,17 +203,33 @@ function TenantFileManager() {
           </TableBody>
         </Table>
       </div>
-      <div className='absolute top-[200px] right-24 flex flex-col gap-4'>
-        <Button className='flex gap-2 bg-green-700 hover:bg-green-800 dark:text-white'>
-          <Plus className='w-6 h-6'/>
-          <span>Upload File</span>
+
+      <div className='absolute md:top-[290px] top-[60px] md:right-24 right-4 flex md:flex-col gap-4'>
+        <Button className='relative bg-green-700 hover:bg-green-800 dark:text-white cursor-pointer md:w-[150px] w-[100px]'>
+          <Plus className='absolute md:left-2 right-3 md:w-6 w-5 md:h-6 w-5'/>
+          <label
+          htmlFor='file-upload'
+          className='md:pl-8 cursor-pointer md:text-[12.5px] text-[11px]'
+          >
+            Upload File
+          </label>
+          <Input
+          id = 'file-upload'
+          type='file'
+          className ='opacity-0'
+          onChange = {handleFileChange}
+          />
         </Button>
-        <Button className='flex gap-4 bg-red-900 dark:text-white hover:bg-red-950'>
-          <span className='font-bold text-xs'>View Trash</span>
-          <Trash2 className='w-6 h-6'/>
+        
+        <Button className='relative bg-red-900 dark:text-white hover:bg-red-950 md:w-[150px] w-[100px]'>
+          <Trash2 className='absolute md:left-2 right-3 md:w-6 w-5 md:h-6 w-5'/>
+          <label
+          htmlFor='view-trash'
+           className='font-bold md:text-[12.5px] text-[11px]'>View Trash</label>
         </Button>
       </div>
     </div>
+        
     </>
   )
 }
