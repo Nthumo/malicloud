@@ -72,14 +72,14 @@ function TenantMaintenanceRequests() {
     </Helmet>
     <Header/>
     <div className='relative'>
-      <div className='flex justify-between md:ml-28 ml-12 md:mr-12 mr-10 mb-6'>
+      <div className='flex justify-between md:ml-28 ml-12  mb-6'>
         <h1 className='font-bold md:text-xl text-sm'>Maintenance Requests</h1>
         <Button className='bg-green-600 hover:bg-green-500 md:text-[12px] text-[11px] md:p-4 p-2'>Schedule a request</Button>
       </div>
 
-      <div className='text-xl md:flex justify-between md:space-y-0 space-y-4 md:ml-28 ml-12 md:mr-12 mr-10'>
+      <div className='text-xl md:flex justify-between md:space-y-0 space-y-4 md:ml-28 ml-12'>
         {/**recent requests */}
-        <Card className='md:w-[700px] w-[340px] md:h-[450px] bg-zinc-300 dark:bg-zinc-900'>
+        <Card className='md:w-[700px]  md:h-[450px] bg-zinc-300 dark:bg-zinc-900'>
           <CardHeader className='p-3'>
             <CardTitle className='md:text-lg text-[15px]'>Recent Requests</CardTitle>
           </CardHeader>
