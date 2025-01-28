@@ -21,8 +21,8 @@ export default function Header() {
 
   return (
     <>
-    <div className='relative flex items-center md:h-[60px] md:pl-28 pl-10 border-b md:mb-4'>
-        <div className='flex items-center '>
+    <div className='relative flex items-center md:h-[60px] border-b md:mb-4'>
+        <div className='flex items-center md:ml-14 ml-10'>
             <Link to='/' className="flex items-center">
                 <img src="/images/cloud-transparent.png" alt="logo" className='md:w-[100px] w-[40px]'/>
                 <h1 className='md:text-xl font-bold dark:text-white text-black'>MaliCloud</h1>

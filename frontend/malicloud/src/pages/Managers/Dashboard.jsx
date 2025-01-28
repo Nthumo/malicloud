@@ -12,13 +12,16 @@ import Rent from '@/components/managers/piecharts/Rent';
 import OustandingPerProperty from '@/components/managers/piecharts/OustandingPerProperty';
 import { Badge } from '@/components/ui/badge';
 
-
 const chartData = [
   {house: "Fine House", occupants: 130 , units: 200, month: 'Jan', collected: 5000, outstanding: 1000 },
   {house: "Murang'a House", occupants: 106, units: 150, month: 'Feb', collected: 5500, outstanding: 300 },
   {house: "UpperHill House", occupants: 66, units: 100, month: 'Mar', collected: 5000, outstanding: 100},
   {house: "Embu House", occupants: 126, units: 200, month: 'Apr', collected: 3000, outstanding: 2500},
 ]
+
+const truncateLabel = (label, maxLength = 10) => {
+  return label.length > maxLength ? `${label.substring(0, maxLength)}...` : label;
+}
 
 const calculateOccupanyRates = (data) => {
   let totalOccupants = 0;
@@ -45,7 +48,6 @@ const calculateOccupanyRates = (data) => {
   }
 }
 
-
 export default function HomePage() {
 
   const { averageOccupany, highestOccupancy, lowestOccupancy} = calculateOccupanyRates(chartData);
@@ -61,116 +63,104 @@ export default function HomePage() {
     },
   }
 
-  const getPath = (x, y, width, height) => (
-    `M${x},${y + height}
-     C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3} ${x + width / 2}, ${y}
-     C${x + width / 2},${y + height / 3} ${x + 2 * width / 3},${y + height} ${x + width}, ${y + height}
-     Z`
-  );
-
-  const TriangleBar = (props) => {
-    const {
-      fill, x, y, width, height,
-    } = props;
-  
-    return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
-  };
-
   return (
     <>
-    <div className='overflow-auto h-svh'>
-      <Helmet>
-          <title>Property manager - MaliCloud</title>
-          <link rel="icon" type="image/svg+xml" href="/cloud2.png" class="w-[600px]"/>
-      </Helmet>
-      <Header/>
-      <div className='flex justify-between md:ml-28 ml-14 md:mt-8 mt-4 md:mr-10 mr-4'>
+    <Helmet>
+        <title>Property manager - MaliCloud</title>
+        <link rel="icon" type="image/svg+xml" href="/cloud2.png"/>
+    </Helmet>
+    <Header/>
+    <div className='md:ml-24 ml-14 md:mr-6 mr-4'>
+    
+      <div className='flex justify-between   md:mt-8 mt-4'>
         <h1 className=' md:text-lg text-[13px] font-bold'>Dashboard</h1>
         <Link to='/manager/add-tenant'>
-          <Button className='font-bold bg-green-600 hover:bg-green-500 flex md:gap-2 gap-1 dark:text-white text-black md:p-4 p-2 md:h-10 h-7'>
-            <Plus className='w-4'/>
+          <Button className='font-bold bg-green-600 hover:bg-green-500 dark:text-white text-black md:p-4 p-2 md:h-10 h-7'>
+            <Plus className='w-5'/>
           <p className='md:text-[12px] text-[10px]'>Add Tenant</p>
           </Button>
         </Link>
       </div>
-      <div className='md:flex md:gap-8 md:mr-0 mr-14'>
-        <Card className='dark:bg-zinc-900 bg-zinc-300 relative z-10 mt-4 md:ml-28 ml-14  md:w-[650px] w-[360px] md:h-[550px] h-[430px] md:p-2 p-3 border-none'>
-          <CardHeader className='p-0 absolute top-2'>
-            <CardTitle className='dark:text-white md:text-[15px] text-[13px]'>Occupancy rates</CardTitle>
+      <div className='md:flex md:gap-8 '>
+        <Card className='relative z-10 mt-4   md:w-[650px] w-[350px] md:h-[550px] h-[430px] md:p-2 p-3'>
+          <CardHeader className='p-0'>
+            <CardTitle className='dark:text-white md:text-[15px] text-[13px] md:text-center'>Occupancy rates</CardTitle>
           </CardHeader>
-          <div className='absolute top-12 md:left-20 flex md:gap-4 gap-2'>
-            <Card className='md:w-[160px] w-[110px] md:h-[65px] h-[54px] bg-blue-400 bg-opacity-30 border-none'>
+          <div className='flex justify-center md:gap-4 gap-2 mt-4'>
+            <Card className='md:w-[160px] w-[105px] md:h-[65px] h-[54px] bg-blue-400 bg-opacity-30 border-none'>
               <CardHeader className='p-2'>
-                <CardTitle className='md:text-sm text-[11px] text-center text-blue-500'>Average Occupancy</CardTitle>
+                <CardTitle className='md:text-sm text-[10px] text-center text-blue-500'>Average Occupancy</CardTitle>
                 <CardContent>
                   <h1 className='text-center md:text-xl font-bold text-blue-400'>{averageOccupany}%</h1>
                 </CardContent>
               </CardHeader>
             </Card>
-            <Card className='md:w-[160px] w-[110px] md:h-[65px] h-[54px] bg-green-400 bg-opacity-30 border-none '>
+            <Card className='md:w-[160px] w-[105px] md:h-[65px] h-[54px] bg-green-400 bg-opacity-30 border-none '>
               <CardHeader className='p-2'>
-                <CardTitle className='md:text-sm text-[11px] text-center text-green-500'>Highest Occupancy</CardTitle>
+                <CardTitle className='md:text-sm text-[10px] text-center text-green-500'>Highest Occupancy</CardTitle>
               </CardHeader>
               <CardContent>
                 <h1 className='text-center md:text-xl text-green-400 font-bold'>{highestOccupancy}%</h1>
               </CardContent>
             </Card>
-            <Card className='md:w-[160px] w-[110px] md:h-[65px] h-[54px] bg-red-400 bg-opacity-30 border-none '>
+            <Card className='md:w-[160px] w-[105px] md:h-[65px] h-[54px] bg-red-400 bg-opacity-30 border-none '>
               <CardHeader className='p-2'>
-                <CardTitle className='md:text-sm text-[11px] text-center text-red-500'>Lowest Occupancy</CardTitle>
+                <CardTitle className='md:text-sm text-[10px] text-center text-red-500'>Lowest Occupancy</CardTitle>
               </CardHeader>
               <CardContent>
                 <h1 className='text-center font-bold md:text-xl text-red-400'>{lowestOccupancy}%</h1>
               </CardContent>
             </Card>
           </div>
-          
-          <Card className='absolute md:top-36 top-32 md:w-[600px] md:left-6 md:h-[400px] border-none'>
-            <CardHeader></CardHeader>
-            <CardContent>
-              <ChartContainer config={chartConfig} className='md:w-[500px] w-[300px] md:h-[300px] h-[200px] p-0'>
-                <BarChart
-                accessibilityLayer
-                data={chartData}
-                margin={{top:20,}}
-                barGap={0}
-                >
-                  <CartesianGrid vertical={false}/>
-                  <XAxis
-                  dataKey='house'
-                  tickLine={false}
-                  tickMargin={10}
-                  axisLine={false}
-                  tickFormatter={(value) => value.slice()}
-                  className='font-bold md:text-[12px] text-[9px] w-[20px]'
-                  />
-                  <YAxis/>
-                  <ChartTooltip
-                  cursor={false}
-                  content={<ChartTooltipContent indicator='line'/>}
-                  defaultIndex={1}
-                  />
-                  <Bar dataKey='occupants' fill='#8884d8' stackId='a' barSize={30} shape={3}>
-                    
-                  </Bar>
-                  <Bar dataKey='units' fill='hsl(var(--chart-1))' stackId='ab'  barSize={4}
+          <div className='flex justify-center'>
+            <Card className='mt-4 md:w-[600px] md:left-6 md:h-[400px] border-none'>
+              <CardContent className=''>
+                <ChartContainer config={chartConfig} className=' md:w-[500px] w-[290px] md:h-[300px] h-[200px] p-0'>
+                  <BarChart
+                  accessibilityLayer
+                  data={chartData}
+                  margin={{top:20,}}
+                  barGap={0}
+                  className='mt-6'
                   >
-                  </Bar>
-                </BarChart>
-              </ChartContainer>
-            </CardContent>
-            <CardFooter className='md:text-sm text-[12px] leading-none text-muted-foreground'>
-              Showing occupants per Property
-            </CardFooter>
-          </Card>
+                    <CartesianGrid vertical={false}/>
+                    <XAxis
+                    dataKey='house'
+                    tickLine={false}
+                    tickMargin={10}
+                    axisLine={false}
+                    tickFormatter={(value) => truncateLabel(value, 10)}
+                    className='font-bold md:text-[12px] text-[9px] w-[20px]'
+                    />
+                    <YAxis/>
+                    <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent indicator='line'/>}
+                    defaultIndex={1}
+                    />
+                    <Bar dataKey='occupants' fill='#8884d8' stackId='a' barSize={30} shape={3}>
+                      
+                    </Bar>
+                    <Bar dataKey='units' fill='hsl(var(--chart-1))' stackId='ab'  barSize={4}
+                    >
+                    </Bar>
+                  </BarChart>
+                </ChartContainer>
+              </CardContent>
+            </Card>
+          </div>
+          <CardFooter className='md:text-sm text-[12px] md:mt-0 mt-12 text-muted-foreground'>
+            Showing occupants per Property
+          </CardFooter>
         </Card>
 
-        <Card className='w-[550px] md:mt-28 md:ml-0 ml-14 md:grid grid-cols-2 flex flex-col gap-3 p-3 border-none'>
-        <Rent/>
-        <OustandingPerProperty/>
+        <Card className='md:ml-0  md:flex items-center gap-3 border-none'>
+          <Rent/>
+          <OustandingPerProperty/>
         </Card>
       </div>
-      <Card className='mt-8 md:ml-28 ml-14 mb-8 md:w-[1240px] w-[360px]'>
+
+      <Card className=' mt-8 mb-8'>
         <CardHeader className='p-2'>
           <CardTitle className='md:text-lg text-[13px]'>Recent maintenance requests</CardTitle>
         </CardHeader>
@@ -255,8 +245,6 @@ export default function HomePage() {
           </Table>
       </Card>
     </div>
-    
     </>
-    
   )
 }

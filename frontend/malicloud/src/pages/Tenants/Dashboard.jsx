@@ -39,14 +39,14 @@ const leases = [
 export default function Dashboard() {
   return (
     <>
-    <div className='h-svh'>
+    <div className=' h-svh'>
       <Helmet>
         <title>Dashboard - Tenant</title>
       </Helmet>
       <Header/>
-      <div className='grid flex-1 items-start gap-4 p-4 '>
-        <div className='grid gap-8'>
-          <div className='flex justify-center'>
+      <div className='md:ml-16 ml-12'>
+        <div className=''>
+          <div className='flex justify-center md:mt-0 mt-2'>
             <Card className='h-24 md:w-[300px] border-none shadow-sm dark:shadow-white shadow-black'>
                 <CardHeader>
                     <CardTitle className='text-orange-500 md:text-lg text-sm text-center md:mb-2'>Welcome back <span className='dark:text-white text-black'>[John Doe]</span></CardTitle>
@@ -57,8 +57,8 @@ export default function Dashboard() {
             </Card> 
           </div>
   
-          <div className='relative md:grid grid-cols-2 gap-36 md:space-y-0 space-y-6'>
-            <Card className='md:ml-14 ml-9 md:h-[500px] h-[350px] md:w-[650px] w-[330px] border-none dark:bg-zinc-900 bg-zinc-300 md:rounded-none overflow-auto'>
+          <div className='relative md:mt-5 mt-4 md:grid grid-cols-2 gap-36 md:space-y-0 space-y-6'>
+            <Card className='md:h-[500px] h-[350px] md:w-[650px] w-[330px] border-none dark:bg-zinc-900 bg-zinc-300 md:rounded-none overflow-auto'>
                 <CardHeader className='md:p-3 p-2'>
                     <CardTitle className='text-orange-500 md:text-xl text-[13px] font-bold'>Leases</CardTitle>
                 </CardHeader>
@@ -94,7 +94,7 @@ export default function Dashboard() {
                 </CardContent>
             </Card> 
 
-            <Card className='md:h-[500px] h-[] md:w-[580px] w-[330px] md:ml-0 ml-9 border-none dark:bg-zinc-900 bg-zinc-300 md:rounded-none overflow-auto'>
+            <Card className='md:h-[500px] h-[] md:w-[580px] w-[330px] border-none dark:bg-zinc-900 bg-zinc-300 md:rounded-none overflow-auto'>
               <CardHeader className='md:p-3 p-2'>
                 <CardTitle className='text-orange-500 md:text-xl text-[13px] font-bold'>Recently Viewed</CardTitle>
               </CardHeader>

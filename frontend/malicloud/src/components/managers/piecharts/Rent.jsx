@@ -1,10 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '../../ui/card';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '../../ui/chart';
-import { Bar, BarChart, CartesianGrid, LabelList, Pie,PieChart, XAxis, YAxis, Cell, Legend } from 'recharts';
-import { Tooltip } from 'radix-ui';
-
-
+import { Bar, BarChart, CartesianGrid, LabelList, Pie,PieChart, XAxis, YAxis, Cell, Legend, Tooltip } from 'recharts';
 
     const chartData = [
         {house: "Fine House", occupants: 130 , units: 200, month: 'Jan', collected: 5000, outstanding: 1000 },
@@ -56,45 +53,47 @@ function Rent() {
       }
   return (
     <>
-        <Card className='flex flex-col md:w-[230px] w-[280px] md:h-[300px] h-[300px] md:p-4 shadow-sm dark:shadow-white shadow-black'>
-          <CardHeader className='p-2'>
-            <CardTitle className='text-sm text-center'>Collected vs outstanding rent</CardTitle>
-          </CardHeader>
-          <CardContent className='p-0'>
-            <ChartContainer
-            config={chartConfig}
-            className='mx-auto aspect-square '
-            >
-              <PieChart className='' width={100} height={100}>
-                <ChartTooltip
-                content={<ChartTooltipContent/>}
-                />
-                <Pie 
-                data={totalRentData} 
-                dataKey='value'
-                cx='50%'
-                cy='50%'
-                fill="#8884d8"
-                innerRadius={50}
-                outerRadius={80}
-                className='text-lg font-bold'
-                >
-                 {totalRentData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
-                 ))}
-                 
-                </Pie>
-                <Tooltip/>
-                <Legend/>                
-              </PieChart>
-              <div className='md:mt-2 text-center'>
-                <p className='flex justify-center items-center gap-2'>
-                  Percentage Collected: <span className='text-green-700 font-bold text-lg'>{percentageCollected}%</span>
-                </p>
-              </div>
-            </ChartContainer>
-          </CardContent>
-        </Card>
+    <div className='flex justify-center md:mt-0 mt-4'>
+      <Card className='w-[230px] md:w-[280px] md:h-[340px] h-[300px] md:p-4 border md:shadow-sm md:dark:shadow-white md:shadow-black'>
+        <CardHeader className='p-2'>
+          <CardTitle className='md:text-sm text-[11px] text-center'>Collected vs outstanding rent</CardTitle>
+        </CardHeader>
+        <CardContent className='p-0'>
+          <ChartContainer
+          config={chartConfig}
+          className='mx-auto aspect-square '
+          >
+            <PieChart className='' width={100} height={100}>
+              <ChartTooltip
+              content={<ChartTooltipContent/>}
+              />
+              <Pie 
+              data={totalRentData} 
+              dataKey='value'
+              cx='50%'
+              cy='50%'
+              fill="#8884d8"
+              innerRadius={50}
+              outerRadius={80}
+              className='text-lg font-bold'
+              >
+                {totalRentData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
+                ))}
+                
+              </Pie>
+              <Tooltip/>
+              <Legend/>                
+            </PieChart>
+            <div className='md:mt-2 text-center'>
+              <p className='flex justify-center items-center gap-2'>
+                Percentage Collected: <span className='text-green-700 font-bold text-lg'>{percentageCollected}%</span>
+              </p>
+            </div>
+          </ChartContainer>
+        </CardContent>
+      </Card>
+    </div>
     </>
   )
 };

@@ -13,30 +13,30 @@ const chartData = [
 const COLORS = ['#413c3c', ' #2471a3 ', '#c0392b', '  #229954']
 
 export default function OustandingPerProperty() {
-
   return (
     <>
-    <Card className='w-[280px] h-[300px] flex flex-col gap-4 shadow-sm dark:shadow-white shadow-black'>
-        <CardHeader className='p-2'>
-            <CardTitle className='text-sm text-center'>Oustanding rent by Property</CardTitle>
-        </CardHeader>
-        <CardContent>
-            <ResponsiveContainer
-            width='100%'
-            height={200}
-            className=''
-            >
-            <PieChart>
-                <Pie 
-                data={chartData} 
-                cx='50%'
-                cy='50%'
-                dataKey='outstanding'
-                nameKey='house'
-                outerRadius={80}
-                fill="#8884d8"
-                className='font-bold dark:text-white text-black'
+    <div className='flex justify-center md:mt-0 mt-4'>
+        <Card className='md:w-[280px] w-[230px] md:h-[300px] h-[280px] flex flex-col gap-4 md:shadow-sm md:dark:shadow-white md:shadow-black'>
+            <CardHeader className='p-2'>
+                <CardTitle className='md:text-sm text-[11px] text-center'>Oustanding rent by Property</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <ResponsiveContainer
+                width='100%'
+                height={200}
+                className=''
                 >
+                <PieChart>
+                    <Pie 
+                    data={chartData} 
+                    cx='50%'
+                    cy='50%'
+                    dataKey='outstanding'
+                    nameKey='house'
+                    outerRadius={80}
+                    fill="#8884d8"
+                    className='font-bold dark:text-white text-black'
+                    >
                     <LabelList
                     dataKey='house'
                     fill='#333'
@@ -45,18 +45,17 @@ export default function OustandingPerProperty() {
                     stroke='none'
                     fontSize={10}
                     />
-
-                {chartData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
-                ))}
-                </Pie>
-                <Legend wrapperStyle={{fontSize: '10px', marginTop: '10px'}}/>
-                <Tooltip/>
-            </PieChart>
-            </ResponsiveContainer>
-        </CardContent>
-       
-    </Card>    
+                    {chartData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
+                    ))}
+                    </Pie>
+                    <Legend wrapperStyle={{fontSize: '10px', marginTop: '10px'}}/>
+                    <Tooltip/>
+                </PieChart>
+                </ResponsiveContainer>
+            </CardContent>
+        </Card>    
+    </div>    
     </>
   )
 }

@@ -40,12 +40,12 @@ export default function AddTenant() {
     <Helmet>
         <title>Add tenant - MaliCloud</title>
     </Helmet>
-    <div className='flex justify-center'>
-        <div className='shadow-sm dark:shadow-white shadow-black w-[550px] h-[500px] p-4 mt-12 rounded-lg'>
+    <div className='md:flex justify-center md:ml-0 ml-16'>
+        <div className='shadow-sm dark:shadow-white shadow-black md:w-[550px] w-[330px] md:h-[500px] p-4 mt-12 rounded-lg'>
             <div className='text-center'>
                 <h1 className='mt-8 text-4xl'>Add Tenant</h1>
             </div>
-            <div className='flex justify-center'>
+            <div className='md:flex justify-center'>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} action="submit"
                     className=''
@@ -57,7 +57,7 @@ export default function AddTenant() {
                         render = {({field }) => (
                             <FormItem className='mt-8'>
                                 <FormLabel>First name *</FormLabel>
-                                <FormControl className='w-[400px] mt-8'>
+                                <FormControl className='md:w-[400px] w-[300px] mt-8'>
                                     <Input placeholder='Enter first name'{...field} className='dark:border-white border-black'/>
                                 </FormControl>
                             </FormItem>
@@ -72,7 +72,7 @@ export default function AddTenant() {
                         render = {({field }) => (
                             <FormItem className='mt-8'>
                                 <FormLabel>Last name *</FormLabel>
-                                <FormControl className='w-[400px]'>
+                                <FormControl className='md:w-[400px] w-[300px]'>
                                     <Input placeholder='Enter last name'{...field} className='dark:border-white  border-black'/>
                                 </FormControl>
                             </FormItem>
@@ -106,7 +106,7 @@ export default function AddTenant() {
                         }
                         />
                         <div className='flex justify-center mt-16'>
-                            <Button className='bg-black text-white font-bold text-lg hover:bg-zinc-800 border-none rounded-none w-[100px]'>Submit</Button>
+                            <Button className='bg-black text-white font-bold text-lg hover:bg-zinc-800 border-none w-[100px]'>Submit</Button>
                         </div>
                     </form>
                 </Form>
