@@ -13,7 +13,7 @@ export default function PropertiesPage() {
       <title>Properties - MaliCloud</title>
     </Helmet>
     <Header/>
-      <div className='md:ml-24 ml-12 md:mr-6 mr-4'>
+      <div className='md:ml-24 ml-12 md:mr-0 mr-4'>
         <div className='flex justify-between items-center md:mt-8 mt-4'>
           <div className='flex gap-4 items-center'>
             <h1 className=' md:text-lg text-sm font-bold'>Properties</h1>
@@ -22,7 +22,7 @@ export default function PropertiesPage() {
               <span className='font-bold text-orange-500'>4</span>
             </div>
           </div>
-          <div>
+          <div className='md:mr-20'>
             <Link to='/manager/properties/add-property'>
               <Button className='dark:bg-green-500 dark:hover:bg-green-600 border-none flex md:gap-2'>
                 <Plus className='md:h-6 h-5 md:w-6 w-5'/>
@@ -35,7 +35,7 @@ export default function PropertiesPage() {
         <Card className='md:grid grid-cols-2 gap-y-12 mt-4 p-2 border-none'>
           <Card className='relative md:h-[200px] h-[190px] md:w-[570px] p-2 shadow-sm dark:shadow-white shadow-black'>
             <CardContent className='md:p-2 p-1'>
-              <div className='absolute top-6 p-1 bg-zinc-700 text-white rounded-r-lg w-[90px] truncate'>
+              <div className='absolute top-6 p-1 bg-zinc-700 text-white rounded-r-lg md:w-[120px] w-[90px] truncate'>
                 <p className='text-[9px]'>Balance <span className='md:text-[11px]'>ksh: 20,000.00</span></p>
               </div>
               <div className='flex md:gap-8 gap-6'>
@@ -81,7 +81,7 @@ export default function PropertiesPage() {
           </Card>
           <Card className='relative md:mt-0 mt-5 md:h-[200px] h-[190px] md:w-[570px] p-2 shadow-sm dark:shadow-white shadow-black'>
             <CardContent className='md:p-2 p-1'>
-            <div className='absolute top-6 p-1 bg-zinc-700 text-white rounded-r-lg w-[90px] truncate'>
+            <div className='absolute top-6 p-1 bg-zinc-700 text-white rounded-r-lg md:w-[120px] w-[90px] truncate'>
                 <p className='text-[9px]'>Balance <span className='md:text-[11px]'>ksh: 322330.00</span></p>
             </div>
               <div className='flex md:gap-8 gap-6'>
@@ -127,7 +127,7 @@ export default function PropertiesPage() {
           </Card>
           <Card className='relative md:mt-0 mt-5 md:h-[200px] h-[190px] md:w-[570px] p-2 shadow-sm dark:shadow-white shadow-black'>
             <CardContent className='md:p-2 p-1'>
-            <div className='absolute top-6 p-1 bg-zinc-700 text-white rounded-r-lg w-[90px] truncate'>
+            <div className='absolute top-6 p-1 bg-zinc-700 text-white rounded-r-lg md:w-[120px] w-[90px] truncate'>
                 <p className='text-[9px]'>Balance <span className='md:text-[11px]'>ksh:3320.00</span></p>
             </div>
               <div className='flex md:gap-8 gap-6'>
@@ -173,7 +173,7 @@ export default function PropertiesPage() {
           </Card>
           <Card className='relative md:mt-0 mt-5 md:h-[200px] h-[190px] md:w-[570px] p-2 shadow-sm dark:shadow-white shadow-black'>
             <CardContent className='md:p-2 p-1'>
-            <div className='absolute top-6 p-1 bg-zinc-700 text-white rounded-r-lg w-[90px] truncate'>
+            <div className='absolute top-6 p-1 bg-zinc-700 text-white rounded-r-lg md:w-[120px] w-[90px] truncate'>
                 <p className='text-[9px]'>Balance <span className='md:text-[11px]'>ksh:393939330.00</span></p>
             </div>
               <div className='flex md:gap-8 gap-6'>
@@ -219,7 +219,7 @@ export default function PropertiesPage() {
           </Card>
           <Card className='relative md:mt-0 mt-5 md:h-[200px] h-[190px] md:w-[570px] p-2 shadow-sm dark:shadow-white shadow-black'>
             <CardContent className='md:p-2 p-1'>
-            <div className='absolute top-6 p-1 bg-zinc-700 text-white rounded-r-lg w-[90px] truncate'>
+            <div className='absolute top-6 p-1 bg-zinc-700 text-white rounded-r-lg md:w-[120px] w-[90px] truncate'>
                 <p className='text-[9px]'>Balance <span className='md:text-[11px]'>ksh:22222220.00</span></p>
             </div>
               <div className='flex md:gap-8 gap-6'>
@@ -265,7 +265,7 @@ export default function PropertiesPage() {
           </Card>
           <Card className='relative md:mt-0 mt-5 md:h-[200px] h-[190px] md:w-[570px] p-2 shadow-sm dark:shadow-white shadow-black'>
             <CardContent className='md:p-2 p-1'>
-            <div className='absolute top-6 p-1 bg-zinc-700 text-white rounded-r-lg w-[90px] truncate'>
+            <div className='absolute top-6 p-1 bg-zinc-700 text-white rounded-r-lg md:w-[120px] md:w-[120px] w-[90px] truncate'>
                 <p className='text-[9px]'>Balance <span className='md:text-[11px]'>ksh:111111111110.00</span></p>
             </div>
               <div className='flex md:gap-8 gap-6'>
