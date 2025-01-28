@@ -71,8 +71,7 @@ export default function HomePage() {
     </Helmet>
     <Header/>
     <div className='md:ml-24 ml-14 md:mr-6 mr-4'>
-    
-      <div className='flex justify-between   md:mt-8 mt-4'>
+      <div className='flex justify-between md:mt-8 mt-4'>
         <h1 className=' md:text-lg text-[13px] font-bold'>Dashboard</h1>
         <Link to='/manager/add-tenant'>
           <Button className='font-bold bg-green-600 hover:bg-green-500 dark:text-white text-black md:p-4 p-2 md:h-10 h-7'>
