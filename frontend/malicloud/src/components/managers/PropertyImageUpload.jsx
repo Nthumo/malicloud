@@ -72,14 +72,12 @@ export default function PropertyImageUpload() {
     setGalleryImages(prev => prev.filter((_, i) => i !== index));
   };
 
-
   return (
     <>
       <div className='mx-auto space-y-8 p-2'>
         {/*Main property image section */}
         <Card className='p-6'>
           <h2 className='font-semibold'>Property Photo</h2>
-
           {!mainImage && (
             <div
             {...getMainImageRootProps()}
@@ -92,31 +90,30 @@ export default function PropertyImageUpload() {
           )}
 
           {mainImage && !showCropper && (
-              <div className='relative mt-4'>
-                <img
-                src={mainImage.preview}
-                alt='preview'
-                className='w-full h-64 object-fill rounded-lg'
-                />
-                <div className='flex justify-between items-center mt-4'>
-                  <button
-                  onClick={handleCropButtonClick}
-                  className=''
-                  >
-                    <Crop className='h-6'/>
-                    <p className='text-[10px]'>Crop</p>
-                  </button>
-                  <div
-                  {...getMainImageRootProps()}
-                  className='flex flex-col items-center cursor-pointer'
-                  >
-                    <input {...getMainImageInputProps()} />
-                    <CloudUpload className='h-5'/>
-                    <p className='text-[10px]'>Upload Photo</p>
-                  </div>
+            <div className='relative mt-4'>
+              <img
+              src={mainImage.preview}
+              alt='preview'
+              className='w-full h-64 object-fill rounded-lg'
+              />
+              <div className='flex justify-between items-center mt-4'>
+                <button
+                onClick={handleCropButtonClick}
+                className=''
+                >
+                  <Crop className='h-6'/>
+                  <p className='text-[10px]'>Crop</p>
+                </button>
+                <div
+                {...getMainImageRootProps()}
+                className='flex flex-col items-center cursor-pointer'
+                >
+                  <input {...getMainImageInputProps()} />
+                  <CloudUpload className='h-5'/>
+                  <p className='text-[10px]'>Upload Photo</p>
                 </div>
-                
               </div>
+            </div>
           )}
 
           {/* Handle Cropper */}
@@ -146,7 +143,6 @@ export default function PropertyImageUpload() {
                   {}
                 </select>
                 */}
-               
                 <div className=''>
                   <Button
                   onClick={onCancel}
@@ -171,7 +167,6 @@ export default function PropertyImageUpload() {
               <img src={croppedImage} alt="Cropped" className='w-full h-64 object-cover'/>
             </div>
           )}
-          
         </Card>
 
         {/*Gallery images section */}

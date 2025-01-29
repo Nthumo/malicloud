@@ -31,7 +31,7 @@ export default function AddUnit() {
     };
 
   return (
-    <div>
+    <div className=''>
         {units.map((unit, index) => (
         <div key={unit.id} className='mt-4'>
             <div className='flex justify-between'>
@@ -41,7 +41,7 @@ export default function AddUnit() {
                 </Button>
             </div>
             
-            <div className='flex gap-9 mt-4'>
+            <div className='flex md:gap-9 mt-4'>
                 <div className=' w-[160px] p-2'>
                     <Label>unit # *</Label>
                     <Input
@@ -51,24 +51,24 @@ export default function AddUnit() {
                     />
                 </div>
                 <div className='p-2 '>
-                <Label>Unit type *</Label>
-                <Select className='focus:ring-0 focus:outline-none'>
-                    <SelectTrigger className='bg-transparent w-[350px] focus:border-none border-muted-foreground'>Select Type</SelectTrigger>
-                    <SelectContent>
-                    <SelectItem value='apartment'>Apartment</SelectItem>
-                    <SelectItem value='parking-space'>Parking Space</SelectItem>
-                    <SelectItem value='storage-unit'>Storage unit</SelectItem>
-                    <SelectItem value='room'>Room</SelectItem>
-                    <SelectItem value='office-unit'>Office unit</SelectItem>
-                    </SelectContent>
-                </Select>
+                    <Label>Unit type *</Label>
+                    <Select className='focus:ring-0 focus:outline-none'>
+                        <SelectTrigger className='bg-transparent md:w-[350px] focus:border-none border-muted-foreground'>Select Type</SelectTrigger>
+                        <SelectContent>
+                        <SelectItem value='apartment'>Apartment</SelectItem>
+                        <SelectItem value='parking-space'>Parking Space</SelectItem>
+                        <SelectItem value='storage-unit'>Storage unit</SelectItem>
+                        <SelectItem value='room'>Room</SelectItem>
+                        <SelectItem value='office-unit'>Office unit</SelectItem>
+                        </SelectContent>
+                    </Select>
                 </div>
                 <div className='p-2 '>
                 <Label>Size, sq.ft</Label>
                 <Input className='bg-transparent border-muted-foreground focus:border-none'/>
                 </div>
             </div>
-            <div className='flex gap-7 mt-8'>
+            <div className='md:flex gap-7 md:mt-8 mt-4'>
                 <div className='p-2'>
                 <Label>Beds</Label>
                 <Select>
@@ -113,7 +113,6 @@ export default function AddUnit() {
             </div>
         </div>
         ))}
- 
     </div>
   )
 }

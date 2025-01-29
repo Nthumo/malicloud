@@ -57,7 +57,7 @@ export default function PropertyAttachement() {
   return (
     <div className='relative'>
         <div className='mt-4 '>
-            <h1 className='font-semibold'>PROPERTY ATTACHMENTS</h1>
+            <h1 className='md:font-semibold font-bold md:text-[14px] text-[12px]'>PROPERTY ATTACHMENTS</h1>
             {!attachments.length && (
             <div
             {...getRootProps()}
