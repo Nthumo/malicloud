@@ -88,12 +88,22 @@ export default function Tenants() {
       <title>Tenants - MaliCloud</title>
     </Helmet>
     <Header/>
-      <div className='ml-[120px]'>
-        <div className='flex items-center justify-between '>
-          <div className='flex items-center gap-8 mt-8 ml-4'>
-            <h1 className='text-xl font-bold'>Tenants</h1>
+      <div className='md:ml-[120px] ml-16 md:mr-10 mr-4 mb-4'>
+        <div className='flex items-center md:gap-8 gap-4 md:mt-6 mt-4'>
+          <h1 className='md:text-xl text-lg font-bold'>Tenants</h1>
+          <h1 className='font-bold text-orange-500 md:text-[16px] text-[13px]'>Total 10</h1>
+        </div>
+        <div className='flex items-center justify-between'>
+          <div className='flex items-center md:gap-8 mt-8 '>
+            <div className='relative focus:outline-1 focus:ring-3 mb-4'>
+              <Search className='absolute md:left-2 left-1 md:top-1 top-1.5 md:h-5 h-4 md:w-5 w-4 text-muted-foreground'/>
+              <Input 
+              type='search'
+              placeholder='Search...' 
+              className='md:w-[150px] w-[100px] h-[25px] pl-9 focus:ring-3 focus:border-none dark:border-white border-black'/>
+            </div>
             <Select>
-              <SelectTrigger className='md:w-[100px] w-[70px] border-none focus:ring-3'>
+              <SelectTrigger className='focus:ring-3 w-[100px] hidden'>
                 <SelectValue placeholder='Sort by'/>
               </SelectTrigger>
               <SelectContent>
@@ -101,32 +111,24 @@ export default function Tenants() {
                 <SelectItem value='modified'>Modified</SelectItem>
               </SelectContent>
             </Select>
-            <h1 className='font-bold text-orange-500'>Total 10</h1>
           </div>
-          <div className='flex gap-4 mr-10'>
-            <Button className='flex gap-2'>
+          <div className='flex md:gap-4 gap-2'>
+            <Button className='flex md:gap-2 gap-1 md:h-[34px] h-[30px] md:w-[90px] w-[80px]'>
               <ArrowDown className='w-5 h-5'/>
-              Import
+              <p className='md:text-[13px] text-[11px]'>Import</p>
             </Button>
             <Link to='/manager/add-tenant'>
-              <Button className='flex gap-3 bg-green-600 hover:bg-green-700'>
-                <Plus className='w-6 h-6'/>
-                Add Tenant
+              <Button className='flex md:gap-3 gap-1 bg-green-600 hover:bg-green-700 md:h-[34px] h-[30px] md:w-[123px] w-[100px]'>
+                <Plus className='w-5 h-5'/>
+                <p className='md:text-[13px] text-[11px]'>Add Tenant</p>
               </Button>
             </Link>
-            
           </div>
         </div>
-        <div className='relative mt-8 ml-4 focus:outline-1 focus:ring-3'>
-          <Search className='absolute md:left-2 md:top-1 md:h-5 md:w-5 text-muted-foreground'/>
-          <Input 
-          type='search'
-          placeholder='Search...' 
-          className='md:w-[150px] md:h-[25px] pl-9 focus:ring-3 focus:border-none dark:border-white border-black'/>
-        </div>
-        <div className='grid grid-cols-4 gap-2 mt-6'>
+        
+        <div className='grid md:grid-cols-4 grid-cols-2 md:gap-8 gap-4 m md:mt-8 mt-10'>
         {tenants.map((tenant) => (
-            <CardContent>
+            <CardContent className='p-0'>
                 <div key={tenant.id} className='shadow-sm dark:shadow-white shadow-black rounded-lg p-4'>
                   <div className='flex justify-between'>
                     <Users className='h-6 w-6'/>
@@ -154,7 +156,6 @@ export default function Tenants() {
                           </MenubarContent>
                         </MenubarMenu>
                       </Menubar>
-                      
                     </div>
                   </div>
                   <div className='flex flex-col items-center text-center'>
@@ -177,9 +178,7 @@ export default function Tenants() {
             </CardContent>
           ))}
         </div>
-        
       </div>
     </>
-    
   )
 }
